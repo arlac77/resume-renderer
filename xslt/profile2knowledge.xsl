@@ -25,6 +25,10 @@
       <xsl:for-each select="distinct-values(($a/pro:category,$b/pro:category))">
         <pro:category><xsl:value-of select="."/></pro:category>
       </xsl:for-each>
+      
+      <xsl:for-each select="distinct-values(($a/pro:manufacturer,$b/pro:manufacturer))">
+        <pro:manufacturer><xsl:value-of select="."/></pro:manufacturer>
+      </xsl:for-each>
     </software>
     
   </xsl:function>
