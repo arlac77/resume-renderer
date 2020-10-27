@@ -1,1 +1,22 @@
-{}
+{
+  "name": "profile",
+  "version": "0.0.0-semantic-release",
+  "scripts": {
+    "build": "npm run build:xslt",
+    "build:xslt": "xslt3 -xsl:a.xsl -s:source.xml -o:out.xml"
+  },
+  "devDependencies": {
+    "xslt3": "^2.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arlac77/profile.git"
+  },
+  "bugs": {
+    "url": "https://github.com/arlac77/profile/issues"
+  },
+  "homepage": "https://github.com/arlac77/profile#readme",
+  "template": {
+    "inheritFrom": "arlac77/template-xslt"
+  }
+}
