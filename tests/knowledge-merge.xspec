@@ -1,17 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <t:description xmlns:t="http://www.jenitennison.com/xslt/xspec"
-               xmlns:xs="http://www.w3.org/2001/XMLSchema"
-               xmlns:pro="http://mfelten.de/mf/profile"
-               stylesheet="../xslt/profile2knowledge.xsl">
-        
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:pro="http://mfelten.de/mf/profile" stylesheet="../xslt/profile2knowledge.xsl">
+
     <t:scenario label="merge software">
         <t:call function="pro:merge_knowledge">
             <t:param name="a">
+                <pro:knowledge>
+                    <name>a</name>
+                </pro:knowledge>
             </t:param>
             <t:param name="b">
+                <pro:knowledge>
+                    <name>a</name>
+                </pro:knowledge>
             </t:param>
         </t:call>
+
+        <t:expect label="the result should be a sequence of two strings">
+            <pro:knowledge>
+                <name>a</name>
+            </pro:knowledge>
+        </t:expect>
     </t:scenario>
-        
+
 </t:description>

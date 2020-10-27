@@ -11,6 +11,8 @@
   <xsl:function name="pro:merge_knowledge">
     <xsl:param name="a" as="element(pro:knowledge)*"/>
     <xsl:param name="b" as="element(pro:knowledge)*"/>
+
+    <xsl:copy-of select="$a"/>
   </xsl:function>
 
   <xsl:template match="pro:profile">
