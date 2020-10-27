@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<knowledge xmlns="http://mfelten.de/mf/profile">
+   <software relevance="10">
+      <name>vscode</name>
+      <name>Visual Studio Code</name>
+      <manufacturer>Microsoft</manufacturer>
+      <category>ide</category>
+   </software>
+</knowledge>
