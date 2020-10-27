@@ -9,8 +9,8 @@
   <xsl:param name="a" select="('../knowledge.xml')"/>
   
   <xsl:function name="pro:merge_knowledge">
-    <xsl:param name="a" as="element(pro:software)*"/>
-    <xsl:param name="b" as="element(pro:software)*"/>
+    <xsl:param name="a" as="element(pro:software)"/>
+    <xsl:param name="b" as="element(pro:software)?"/>
     
     <software>
       <xsl:attribute name="relevance" select="max(($a/@relevance,$b/@relevance,5))"/>

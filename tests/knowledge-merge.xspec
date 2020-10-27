@@ -16,6 +16,7 @@
                 <pro:software>
                     <pro:name>name b</pro:name>
                     <pro:category>category x</pro:category>
+                    <pro:category>category b</pro:category>
                     <pro:manufacturer>manufacturer x</pro:manufacturer>
                 </pro:software>
             </t:param>
@@ -26,6 +27,7 @@
                 <pro:name>name a</pro:name>
                 <pro:name>name b</pro:name>
                 <pro:category>category x</pro:category>
+                <pro:category>category b</pro:category>
                 <pro:manufacturer>manufacturer x</pro:manufacturer>
             </pro:software>
         </t:expect>
