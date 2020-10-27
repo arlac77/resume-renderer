@@ -1,0 +1,109 @@
+#
+# $Id: profile-1.0.rnc 5372 2008-01-21 07:40:40Z markus $
+#
+
+default namespace local = "http://mfelten.de/mf/profile"
+namespace xml = "http://www.w3.org/XML/1998/namespace"
+namespace xsi = "http://www.w3.org/2001/XMLSchema-instance"
+namespace a   = "http://relaxn.org/ns/compatibility/annotations/1.0"
+
+start =
+  profile
+
+[ a:documentation [ "Profile base element" ]]
+profile =
+	element profile {
+		version,
+		person,
+		(focus)*,
+		(job)*,
+		( attribute xsi:schemaLocation { text } )?
+	}
+
+[ a:documentation [ "Profile version information" ]]
+version =
+	element version {
+		text
+	}
+
+[ a:documentation [ "Person information" ]]
+person =
+	element person {
+	(
+	( element name { text } ),
+	( element surname { text } ),
+	( element birthdate { text } ),
+	( element street { text } ),
+	( element postal-code { text } ),
+	( element city { text } )
+	),
+
+	(
+	( element email { text } ) |
+	( element picture { text } ) |
+	( element phone { text } ) |
+	( element mobile { text } )
+	)*
+	}
+
+[ a:documentation [ "Work focus" ]]
+focus =
+	element focus {
+		( element item { text, attribute xml:lang { text }})*
+	}
+
+[ a:documentation [ "Job description" ]]
+job =
+	element job {
+		( element from { text }),
+		( element to { text })?,
+		(contract)?,
+		(element customer { text }),
+		(contact)*,
+		(element summary { (text, key?)*, attribute xml:lang { text }, (attribute kind { text })? })*,
+		(element details { (element p { (text, key?)* })*, 
+		attribute xml:lang { text } })*,
+		( software | hardware )*
+	}
+
+[ a:documentation [ "Key word" ]]
+key =
+	element key {
+		text
+	}
+
+[ a:documentation [ "Contract information" ]]
+contract =
+	element contract {
+		(element agency { text })?,
+		(element id { text })*
+	}
+
+[ a:documentation [ "Contact information" ]]
+contact =
+	element contact {
+		(element name { text }),
+		(element phone { text })*,
+		(element mobile { text })*,
+		(element email { text })*
+	}
+
+[ a:documentation [ "Used software" ]]
+software =
+	element software {
+		(
+		(element name { text }) |
+		(element category { text }) |
+		(element version { text }) |
+		(element manufacturer { text })
+		)+
+	}
+
+[ a:documentation [ "Used hardware" ]]
+hardware =
+	element hardware {
+		(
+		(element model { text }) |
+		(element manufacturer { text })
+		)+
+	}
