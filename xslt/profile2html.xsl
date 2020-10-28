@@ -12,14 +12,15 @@
     <xsl:param name="content" select="'profile'" />
     <xsl:param name="lang" select="'de'" />
     <xsl:param name="country" select="'de'" />
-    <xsl:param name="bundles" select="()" />
     <xsl:param name="with_contact" select="true()" />
     <xsl:param name="relevance" select="5" />
     <xsl:param name="from_date" select="'1966-12-14'" />
+    <xsl:param name="bundles" select="()" />
+    <xsl:param name="knowledge" select="'../knowledge.xml'" />
     
     <xsl:function name="pro:software">
         <xsl:param name="name" as="xs:string*"/>
-        <xsl:variable name="software" as="element()*" select="document('../knowledge.xml')/pro:knowledge/pro:software[pro:name=$name]"/>
+        <xsl:variable name="software" as="element()*" select="document($knowledge)/pro:knowledge/pro:software[pro:name=$name]"/>
         
         <pro:software>
             <xsl:attribute name="relevance" select="($software/@relevance,5)[1]"/>
