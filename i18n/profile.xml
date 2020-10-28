@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<i18n xmlns="http://mfelten.de/mf/i18n"
+	package="de.mfelten.profile">
+
+	<locale language="de">
+		<group id="Profile">
+			<entry id="page"			value="Seite"><description>To identify pages in the footer</description></entry>
+			<entry id="version"			value="- Version"/>
+			<entry id="name"			value="Name"/>
+			<entry id="birthdate"		value="Geburtsdatum"><description>Birthdate</description></entry>
+			<entry id="phone"			value="Telefon"/>
+			<entry id="mobile"			value="Mobil"/>
+			<entry id="address"			value="Anschrift"/>
+			<entry id="github"			value="github"/>
+			<entry id="telegram"		value="telegram"/>
+			<entry id="focus"			value="Schwerpunkte"/>
+			<entry id="job_overview"	value="Übersicht der Projekte"/>
+			<entry id="number"			value="Nr."/>
+			<entry id="from"			value="von"/>
+			<entry id="to"				value="bis"/>
+			<entry id="since"			value="seit"/>
+			<entry id="to_null"			value="dato"><description>End date for ongoing projects</description></entry>
+			<entry id="customer"		value="Kunde"><description>Customer</description></entry>
+			<entry id="contract"		value="Vertrag"/>
+			<entry id="contact"			value="Kontakt"/>
+			<entry id="job"	 			value="Projekt"/>
+			<entry id="job_details"		value="Details zu den Tätigkeiten"/>
+			<entry id="hardware"		value="Hardware"/>
+			<entry id="software"		value="Software"/>
+			<entry id="position"		value="Position"/>
+			<entry id="product"			value="Produkt"/>
+			<entry id="versions"		value="Versionen"><description>Column title for product versions</description></entry>
+
+			<entry id="german"			value="Deutsch"/>
+			<entry id="english"			value="Englisch"/>
+			<entry id="frensh"			value="Französich"/>
+			<entry id="fluent"			value="fließend"/>
+			<entry id="mother tongue"	value="muttersprachlich"/>
+			<entry id="basic"			value="Basiskentnisse"/>
+			<entry id="germany"			value="Deutschland"/>
+			<entry id="expert"			value="Expert"/>
+		</group>
+	</locale>
+
+	<locale language="en">
+		<group id="Profile">
+			<entry id="page"			value="Page"/>
+			<entry id="version"			value="- version"/>
+			<entry id="name"			value="Name"/>
+			<entry id="birthdate"		value="Birthdate"/>
+			<entry id="phone"			value="Phone"/>
+			<entry id="mobile"			value="Mobile"/>
+			<entry id="address"			value="Address"/>
+			<entry id="github"			value="github"/>
+			<entry id="telegram"		value="telegram"/>
+			<entry id="focus"			value="focus"/>
+			<entry id="job_overview"	value="job overview"/>
+			<entry id="number"			value="No."/>
+			<entry id="from"			value="from"/>
+			<entry id="to"				value="to"/>
+			<entry id="since"			value="since"/>
+			<entry id="to_null"			value="dato"/>
+			<entry id="customer"		value="customer"/>
+			<entry id="contract"		value="Contract"/>
+			<entry id="contact"			value="Contact"/>
+			<entry id="job"				value="Project"/>
+			<entry id="job_details"		value="job details"/>
+			<entry id="hardware"		value="hardware"/>
+			<entry id="software"		value="software"/>
+			<entry id="position"		value="Position"/>
+			<entry id="product"			value="Product"/>
+			<entry id="versions"		value="Versions"/>
+
+			<entry id="german"			value="German"/>
+			<entry id="english"			value="English"/>
+			<entry id="frensh"			value="Frensh"/>
+
+			<entry id="fluent"			value="fluent"/>
+			<entry id="mother tongue"	value="mother tongue"/>
+			<entry id="basic"			value="basic"/>
+			<entry id="germany"			value="Germany"/>
+			<entry id="expert"			value="expert"/>
+			</group>
+	</locale>
+</i18n>
