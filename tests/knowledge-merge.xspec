@@ -5,7 +5,7 @@
                xmlns:pro="http://mfelten.de/mf/profile" stylesheet="../xslt/profile2knowledge.xsl">
     
     <t:scenario label="merge software">
-        <t:call function="pro:merge_knowledge">
+        <t:call function="pro:merge_software">
             <t:param name="a">
                 <pro:software relevance="8">
                     <pro:name>name a</pro:name>
@@ -32,5 +32,4 @@
             </pro:software>
         </t:expect>
     </t:scenario>
-    
 </t:description>

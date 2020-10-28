@@ -8,7 +8,7 @@
   <xsl:output indent="yes"/>
   <xsl:param name="a" select="('../knowledge.xml')"/>
   
-  <xsl:function name="pro:merge_knowledge">
+  <xsl:function name="pro:merge_software">
     <xsl:param name="a" as="element(pro:software)"/>
     <xsl:param name="b" as="element(pro:software)?"/>
     
@@ -30,7 +30,6 @@
         <pro:manufacturer><xsl:value-of select="."/></pro:manufacturer>
       </xsl:for-each>
     </software>
-    
   </xsl:function>
   
   <xsl:template match="pro:profile">
