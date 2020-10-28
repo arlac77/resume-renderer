@@ -15,19 +15,23 @@
     <software>
       <xsl:attribute name="relevance" select="max(($a/@relevance,$b/@relevance,5))"/>
       <xsl:for-each select="distinct-values(($a/pro:name,$b/pro:name))">
+        <xsl:sort/>
         <pro:name><xsl:value-of select="."/></pro:name>
       </xsl:for-each>
       
-      <xsl:for-each select="distinct-values(($a/pro:version,$b/pro:version))">
-        <pro:version><xsl:value-of select="."/></pro:version>
-      </xsl:for-each>
-      
       <xsl:for-each select="distinct-values(($a/pro:category,$b/pro:category))">
+        <xsl:sort/>
         <pro:category><xsl:value-of select="."/></pro:category>
       </xsl:for-each>
       
       <xsl:for-each select="distinct-values(($a/pro:manufacturer,$b/pro:manufacturer))">
+        <xsl:sort/>
         <pro:manufacturer><xsl:value-of select="."/></pro:manufacturer>
+      </xsl:for-each>
+
+      <xsl:for-each select="distinct-values(($a/pro:version,$b/pro:version))">
+        <xsl:sort/>
+        <pro:version><xsl:value-of select="."/></pro:version>
       </xsl:for-each>
     </software>
   </xsl:function>

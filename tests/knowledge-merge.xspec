@@ -8,8 +8,10 @@
         <t:call function="pro:merge_software">
             <t:param name="a">
                 <pro:software relevance="8">
+                    <pro:name>name x</pro:name>
                     <pro:name>name a</pro:name>
                     <pro:category>category x</pro:category>
+                    <pro:version>1</pro:version>
                 </pro:software>
             </t:param>
             <t:param name="b">
@@ -26,9 +28,11 @@
             <pro:software relevance="8">
                 <pro:name>name a</pro:name>
                 <pro:name>name b</pro:name>
-                <pro:category>category x</pro:category>
+                <pro:name>name x</pro:name>
                 <pro:category>category b</pro:category>
+                <pro:category>category x</pro:category>
                 <pro:manufacturer>manufacturer x</pro:manufacturer>
+                <pro:version>1</pro:version>
             </pro:software>
         </t:expect>
     </t:scenario>
