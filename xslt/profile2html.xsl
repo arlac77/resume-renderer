@@ -12,7 +12,6 @@
     <xsl:param name="content" select="'profile'" />
     <xsl:param name="lang" select="'de'" />
     <xsl:param name="country" select="'de'" />
-    <xsl:param name="bundles" select="()" />
     <xsl:param name="with_contact" select="true()" />
     <xsl:param name="relevance" select="5" />
     <xsl:param name="from_date" select="'1950-01-01'" />
