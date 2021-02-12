@@ -33,7 +33,7 @@
 
 			<entry id="german"			value="Deutsch"/>
 			<entry id="english"			value="Englisch"/>
-			<entry id="frensh"			value="Französich"/>
+			<entry id="french"			value="Französich"/>
 			<entry id="fluent"			value="fließend"/>
 			<entry id="mother tongue"	value="muttersprachlich"/>
 			<entry id="basic"			value="Basiskentnisse"/>
@@ -73,7 +73,7 @@
 
 			<entry id="german"			value="German"/>
 			<entry id="english"			value="English"/>
-			<entry id="frensh"			value="Frensh"/>
+			<entry id="french"			value="French"/>
 
 			<entry id="fluent"			value="fluent"/>
 			<entry id="mother tongue"	value="mother tongue"/>
