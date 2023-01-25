@@ -2,9 +2,10 @@
   "name": "profile",
   "version": "0.0.0-semantic-release",
   "scripts": {
+    "prepare:xslt": "xslt3 -xsl:a.xsl -s:source.xml -o:out.xml",
     "test": "npm run test:xspec",
     "test:xspec": "../xspec/bin/xspec.sh tests/knowledge-merge.xspec",
-    "build": "npm run build:xslt",
+    "build": "npm run build:xslt && npm run prepare:xslt",
     "build:xslt": "xslt3 -xsl:a.xsl -s:source.xml -o:out.xml"
   },
   "devDependencies": {
