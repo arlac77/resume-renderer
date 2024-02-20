@@ -1,6 +1,6 @@
 {
   "name": "profile",
-  "version": "semantic-release-0.0.0",
+  "version": "0.0.0-semantic-release",
   "publishConfig": {
     "access": "public"
   },
@@ -55,6 +55,9 @@
     ]
   },
   "template": {
-    "inheritFrom": "arlac77/template-xslt"
+    "inheritFrom": [
+      "arlac77/template-arlac77-github",
+      "arlac77/template-xslt"
+    ]
   }
 }

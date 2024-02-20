@@ -3,3 +3,6 @@
 [![install size](https://packagephobia.now.sh/badge?p=profile/@semantic-release-0.0.0)](https://packagephobia.now.sh/result?p=profile@semantic-release-0.0.0)
 [![bundlejs](https://deno.bundlejs.com/?q=profile\&badge=detailed)](https://bundlejs.com/?q=profile)
 [![downloads](http://img.shields.io/npm/dm/profile.svg?style=flat-square)](https://npmjs.org/package/profile)
+[![GitHub Issues](https://img.shields.io/github/issues/arlac77/profile.svg?style=flat-square)](https://github.com/arlac77/profile/issues)
+[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Farlac77%2Fprofile%2Fbadge\&style=flat)](https://actions-badge.atrox.dev/arlac77/profile/goto)
+[![Coverage Status](https://coveralls.io/repos/arlac77/profile/badge.svg)](https://coveralls.io/github/arlac77/profile)
