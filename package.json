@@ -1,27 +1,30 @@
 {
   "name": "profile",
   "version": "semantic-release-0.0.0",
-  "description": "work profile",
+  "private": true,
   "publishConfig": {
     "access": "public"
   },
-  "private": true,
+  "description": "work profile",
   "contributors": [
     {
       "name": "Markus Felten",
       "email": "markus.felten@gmx.de"
     }
   ],
+  "license": "BSD-2-Clause",
   "scripts": {
+    "prepare:xslt": "xslt3 -xsl:a.xsl -s:source.xml -o:out.xml",
     "start": "vite",
     "test": "npm run test:xspec",
     "test:xspec": "../xspec/bin/xspec.sh tests/knowledge-merge.xspec",
     "lint:css": "stylelint ./src/*.css",
     "lint": "npm run lint:css",
     "lint:xml": "rnv schema/profile-1.0.rnc profile.xml",
+    "build": "npm run prepare:xslt",
+    "normalize-knowledge": "xslt3 -xsl:xslt/normalize-knowledge.xsl -s:profile.xml >knowledge-normalized.xml",
     "preview": "vite preview",
-    "update-knowledge": "xslt3 -xsl:xslt/profile2knowledge.xsl -s:profile.xml >knowledge-new.xml",
-    "normalize-knowledge": "xslt3 -xsl:xslt/normalize-knowledge.xsl -s:profile.xml >knowledge-normalized.xml"
+    "update-knowledge": "xslt3 -xsl:xslt/profile2knowledge.xsl -s:profile.xml >knowledge-new.xml"
   },
   "devDependencies": {
     "semantic-release": "^23.0.2",
@@ -31,7 +34,14 @@
     "vite-plugin-compression2": "^0.12.0",
     "xslt3": "^2.6.0"
   },
-  "license": "BSD-2-Clause",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arlac77/profile.git"
+  },
+  "bugs": {
+    "url": "https://github.com/arlac77/profile/issues"
+  },
+  "homepage": "https://github.com/arlac77/profile#readme",
   "release": {
     "plugins": [
       "@semantic-release/commit-analyzer",
@@ -44,5 +54,8 @@
         }
       ]
     ]
+  },
+  "template": {
+    "inheritFrom": "arlac77/template-xslt"
   }
 }
