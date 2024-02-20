@@ -35,12 +35,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/arlac77/profile.git"
+    "url": "git+https://github.com/arlac77/resume-renderer.git"
   },
   "bugs": {
-    "url": "https://github.com/arlac77/profile/issues"
+    "url": "https://github.com/arlac77/resume-renderer/issues"
   },
-  "homepage": "https://github.com/arlac77/profile#readme",
+  "homepage": "https://github.com/arlac77/resume-renderer#readme",
   "release": {
     "plugins": [
       "@semantic-release/commit-analyzer",
