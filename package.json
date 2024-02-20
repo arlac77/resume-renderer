@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "description": "work profile",
+  "description": "render xml resumes as html pdf or docx",
   "contributors": [
     {
       "name": "Markus Felten",
@@ -41,19 +41,6 @@
     "url": "https://github.com/arlac77/resume-renderer/issues"
   },
   "homepage": "https://github.com/arlac77/resume-renderer#readme",
-  "release": {
-    "plugins": [
-      "@semantic-release/commit-analyzer",
-      "@semantic-release/release-notes-generator",
-      "@semantic-release/npm",
-      [
-        "@semantic-release/exec",
-        {
-          "publishCmd": "npx vite build"
-        }
-      ]
-    ]
-  },
   "template": {
     "inheritFrom": [
       "arlac77/template-arlac77-github",
