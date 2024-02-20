@@ -24,7 +24,7 @@
 			<entry id="contract"		value="Vertrag"/>
 			<entry id="contact"			value="Kontakt"/>
 			<entry id="job"	 			value="Projekt"/>
-			<entry id="job_details"		value="Details zu den Tätigkeiten"/>
+			<entry id="job_details"		value="Einzelheiten zu den Tätigkeiten"/>
 			<entry id="hardware"		value="Hardware"/>
 			<entry id="software"		value="Software"/>
 			<entry id="position"		value="Position"/>
@@ -38,7 +38,13 @@
 			<entry id="mother tongue"	value="muttersprachlich"/>
 			<entry id="basic"			value="Basiskentnisse"/>
 			<entry id="germany"			value="Deutschland"/>
-			<entry id="expert"			value="Expert"/>
+			<entry id="expert"			value="Experte"/>
+
+			<entry id="EXPERIENCE"		value="ERFARUNG"/>
+			<entry id="SKILLS"			value="FÄHIGKEITEN"/>
+			<entry id="CONTACT"			value="KONTAKT"/>
+			<entry id="LANGUAGES"		value="SPRACHEN"/>
+			<entry id="OTHER"			value="WEITERES"/>
 		</group>
 	</locale>
 
@@ -80,6 +86,12 @@
 			<entry id="basic"			value="basic"/>
 			<entry id="germany"			value="Germany"/>
 			<entry id="expert"			value="expert"/>
-			</group>
+
+			<entry id="EXPERIENCE"		value="EXPERIENCE"/>
+			<entry id="SKILLS"			value="SKILLS"/>
+			<entry id="CONTACT"			value="CONTACT"/>
+			<entry id="LANGUAGES"		value="LANGUAGES"/>
+			<entry id="OTHER"			value="OTHER"/>
+		</group>
 	</locale>
 </i18n>

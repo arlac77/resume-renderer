@@ -1,26 +1,28 @@
-#
-# $Id: profile-1.0.rnc 5372 2008-01-21 07:40:40Z markus $
-#
 
 default namespace local = "http://mfelten.de/mf/profile"
-namespace xml = "http://www.w3.org/XML/1998/namespace"
 namespace xsi = "http://www.w3.org/2001/XMLSchema-instance"
 namespace a   = "http://relaxn.org/ns/compatibility/annotations/1.0"
 
 start =
-  profile
+  profile | knowledge
 
 [ a:documentation [ "Profile base element" ]]
 profile =
 	element profile {
 		version,
 		person,
+		(language)*,
 		(focus)*,
 		(job)*,
 		( attribute xsi:schemaLocation { text } )?
 	}
 
-[ a:documentation [ "Profile version information" ]]
+knowledge =
+	element knowledge {
+		(software | hardware )*
+	}
+
+[ a:documentation [ "version information" ]]
 version =
 	element version {
 		text
@@ -30,41 +32,64 @@ version =
 person =
 	element person {
 	(
+	( element initials { text } )*,
 	( element name { text } ),
 	( element surname { text } ),
 	( element birthdate { text } ),
 	( element street { text } ),
 	( element postal-code { text } ),
-	( element city { text } )
+	( element city { text } ),
+	( element country { text } )
 	),
-
-	(
-	( element email { text } ) |
-	( element picture { text } ) |
-	( element phone { text } ) |
-	( element mobile { text } )
-	)*
+	( email |
+	 picture |
+	 phone |
+	 mobile |
+     github |
+	 telegram )*
 	}
+
+[ a:documentation [ "Natural language" ]]
+language =
+	element language {
+		attribute name { text },
+		attribute type { text }
+	}
+
+skill = element skill { title?, software_reference*, attribute level { text }, attribute category { text }}
 
 [ a:documentation [ "Work focus" ]]
 focus =
 	element focus {
-		( element item { text, attribute xml:lang { text }})*
+		(element item {
+			title+,
+			description*,
+			text, (attribute since { text })? })*
 	}
 
 [ a:documentation [ "Job description" ]]
 job =
 	element job {
-		( element from { text }),
-		( element to { text })?,
-		(contract)?,
+		(element from { text }),
+		(element to { text })?,
+		title*,
+		contract?,
 		(element customer { text }),
-		(contact)*,
-		(element summary { (text, key?)*, attribute xml:lang { text }, (attribute kind { text })? })*,
-		(element details { (element p { (text, key?)* })*, 
-		attribute xml:lang { text } })*,
-		( software | hardware )*
+		contact*,
+		summary*,
+		skill*,
+		details*, 
+		software_reference*,
+		(software | hardware )*
 	}
+
+title = element title { (text)*, attribute xml:lang { text }? }
+
+summary = element summary { (text, key?)*, attribute xml:lang { text }, (attribute kind { text })? }
+
+details = element details { (element p { (text, key?)* })*, attribute xml:lang { text } }
+
+description = element description { text, attribute xml:lang { text }? }
 
 [ a:documentation [ "Key word" ]]
 key =
@@ -83,19 +108,35 @@ contract =
 contact =
 	element contact {
 		(element name { text }),
-		(element phone { text })*,
-		(element mobile { text })*,
-		(element email { text })*
+		phone*,
+		mobile*,
+		email*
 	}
+
+manufacturer = element manufacturer { text }
+email = element email { text }
+mobile = element mobile { text }
+phone = element phone { text }
+github = element github { text }
+telegram = element telegram { text }
+picture = element picture { text }
+
+software_reference = element software {
+	attribute name { text },
+	attribute skill { text }
+}
 
 [ a:documentation [ "Used software" ]]
 software =
 	element software {
+		attribute relevance { text }?,
+		attribute href { text }?,
+		attribute skill { text }?,
 		(
 		(element name { text }) |
 		(element category { text }) |
-		(element version { text }) |
-		(element manufacturer { text })
+		version |
+		manufacturer
 		)+
 	}
 
@@ -104,6 +145,6 @@ hardware =
 	element hardware {
 		(
 		(element model { text }) |
-		(element manufacturer { text })
+		manufacturer
 		)+
 	}
