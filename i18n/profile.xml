@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <i18n xmlns="http://mfelten.de/mf/i18n"
-	package="de.mfelten.profile">
+	package="resume-renderer">
 
 	<locale language="de">
 		<group id="Profile">
