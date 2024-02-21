@@ -1,5 +1,4 @@
 import { defineConfig } from "vite";
-import { compression } from "vite-plugin-compression2";
 import { promisify } from "node:util";
 import { execFile } from "node:child_process";
 import { mkdir, cp } from "node:fs/promises";
@@ -73,25 +72,6 @@ export default defineConfig(async ({ command, mode }) => {
   return {
     base: "",
     root: "src",
-    plugins: [
-      compression({
-        algorithm: "brotliCompress",
-        exclude: [
-          /\.(br)$/,
-          /\.(gz)$/,
-          /\.(png)$/,
-          /\.(jpg)$/,
-          /\.(gif)$/,
-          /\.(webp)$/,
-          /\.(heic)$/,
-          /\.(avif)$/,
-          /\.(jxl)$/,
-          /\.(pdf)$/,
-          /\.(docx)$/
-        ],
-        threshold: 500
-      })
-    ],
     build: {
       outDir: "../dist",
       emptyOutDir: true,

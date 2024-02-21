@@ -10,7 +10,8 @@
 
     <xsl:param name="dest" select="'build/profile'" />
     <xsl:param name="lang" select="'de'" />
-    <xsl:param name="bundles" select="()" />
+    <xsl:param name="bundles" select="'../i18n/profile.xml'" />
+    <xsl:param name="resources" select="'../resources'" />
     <xsl:param name="with_contact" select="true()" />
     <xsl:param name="relevance" select="5" />
     <xsl:param name="from_date" select="'1966-12-14'" />
