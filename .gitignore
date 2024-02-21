@@ -7,3 +7,7 @@ build
 .test
 .tmp
 tests/xspec
+*_de.html
+*_en.html
+*.pdf
+*.docx
