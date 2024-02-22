@@ -6,9 +6,9 @@
   },
   "description": "render xml resumes as html pdf or docx",
   "keywords": [
-    "vite",
+    "cv",
     "resume",
-    "cv"
+    "vite"
   ],
   "contributors": [
     {
@@ -18,6 +18,8 @@
   ],
   "license": "BSD-2-Clause",
   "scripts": {
+    "prepare": "vite build",
+    "prepare:xslt": "xslt3 -xsl:a.xsl -s:source.xml -o:out.xml",
     "start": "vite",
     "test": "npm run test:xspec",
     "test:xspec": "../xspec/bin/xspec.sh tests/knowledge-merge.xspec",
