@@ -20,7 +20,6 @@
   "scripts": {
     "prepare": "vite build",
     "start": "vite",
-    "test": "npm run test:xspec",
     "test:xspec": "../xspec/bin/xspec.sh tests/knowledge-merge.xspec",
     "lint:css": "stylelint ./src/*.css",
     "lint": "npm run lint:css",
