@@ -29,6 +29,8 @@
 			<entry id="software"		value="Software"/>
 			<entry id="position"		value="Position"/>
 			<entry id="product"			value="Produkt"/>
+			<entry id="manufacturer"	value="Hersteller"/>
+			<entry id="model"			value="Modell"/>
 			<entry id="versions"		value="Versionen"><description>Column title for product versions</description></entry>
 
 			<entry id="german"			value="Deutsch"/>
@@ -75,6 +77,8 @@
 			<entry id="software"		value="software"/>
 			<entry id="position"		value="Position"/>
 			<entry id="product"			value="Product"/>
+			<entry id="manufacturer"	value="manufacturer"/>
+			<entry id="model"			value="model"/>
 			<entry id="versions"		value="Versions"/>
 
 			<entry id="german"			value="German"/>

@@ -144,7 +144,7 @@ software =
 hardware =
 	element hardware {
 		(
-		(element model { text }) |
+		(element name { text }) |
 		manufacturer
 		)+
 	}

@@ -464,10 +464,10 @@
 					<fo:table-header>
 						<fo:table-row height="15pt" background-color="#AAAAAA">							<!-- padding-top="4pt" -->
 							<fo:table-cell>
-								<fo:block>HW-Hersteller</fo:block>
+								<fo:block><xsl:value-of select="$i18n.entries[@id='manufacturer']/@value"/></fo:block>
 							</fo:table-cell>
 							<fo:table-cell>
-								<fo:block>Modell</fo:block>
+								<fo:block><xsl:value-of select="$i18n.entries[@id='model']/@value"/></fo:block>
 							</fo:table-cell>
 						</fo:table-row>
 					</fo:table-header>
@@ -489,7 +489,7 @@
 											<xsl:if test="position() &gt; 1">
 												<xsl:text>, </xsl:text>
 											</xsl:if>
-											<xsl:value-of select="pro:model"/>
+											<xsl:value-of select="pro:name"/>
 										</xsl:for-each>
 									</fo:block>
 								</fo:table-cell>
@@ -509,7 +509,7 @@
 					<fo:table-header>
 						<fo:table-row height="15pt" background-color="#AAAAAA">							<!-- padding-top="4pt" -->
 							<fo:table-cell>
-								<fo:block>SW-Hersteller</fo:block>
+								<fo:block><xsl:value-of select="$i18n.entries[@id='manufacturer']/@value"/></fo:block>
 							</fo:table-cell>
 							<fo:table-cell>
 								<fo:block>
