@@ -41,6 +41,7 @@
 			<entry id="basic"			value="Basiskentnisse"/>
 			<entry id="germany"			value="Deutschland"/>
 			<entry id="expert"			value="Experte"/>
+			<entry id="resume"			value="Zusammenfassung"/>
 
 			<entry id="EXPERIENCE"		value="ERFAHRUNG"/>
 			<entry id="SKILLS"			value="FÄHIGKEITEN"/>
@@ -90,6 +91,7 @@
 			<entry id="basic"			value="basic"/>
 			<entry id="germany"			value="Germany"/>
 			<entry id="expert"			value="expert"/>
+			<entry id="resume"			value="resume"/>
 
 			<entry id="EXPERIENCE"		value="EXPERIENCE"/>
 			<entry id="SKILLS"			value="SKILLS"/>

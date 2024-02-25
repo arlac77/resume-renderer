@@ -6,7 +6,7 @@
   xmlns="http://mfelten.de/mf/profile" exclude-result-prefixes="pro">
 
   <xsl:output indent="yes"/>
-  <xsl:param name="a" select="('../knowledge.xml')"/>
+  <xsl:param name="knowledge" select="'../../../knowledge.xml'" />
 
   <xsl:template match="processing-instruction('xml-model')">
     <xsl:copy-of select="."/>
@@ -14,7 +14,7 @@
 
   <xsl:template match="pro:profile">
     <knowledge>
-      <xsl:for-each-group select="(document($a)/pro:knowledge/pro:software,//pro:software)" group-by="pro:name[1]">
+      <xsl:for-each-group select="(document($knowledge)/pro:knowledge/pro:software,//pro:software)" group-by="pro:name[1]">
         <xsl:sort select="pro:name[1]"/>
         <software>
           <xsl:copy-of select="current-group()/@*"/>
