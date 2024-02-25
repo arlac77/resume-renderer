@@ -24,7 +24,7 @@
     "lint:xml": "rnv schema/profile-1.0.rnc profile.xml",
     "normalize-knowledge": "xslt3 -xsl:xslt/normalize-knowledge.xsl -s:profile.xml >knowledge-normalized.xml",
     "preview": "vite preview",
-    "update-knowledge": "xslt3 -xsl:xslt/profile2knowledge.xsl -s:profile.xml >knowledge.xml"
+    "update-knowledge": "xslt3 -xsl:xslt/profile2knowledge.xsl knowledge=file:$(pwd)/knowledge.xml -s:profile.xml >knowledge.xml"
   },
   "devDependencies": {
     "semantic-release": "^23.0.2",

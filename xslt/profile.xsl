@@ -9,7 +9,7 @@
 
     <xsl:function name="pro:software" as="element(pro:software)">
         <xsl:param name="name" as="xs:string*" />
-        <xsl:variable name="software" as="element()*" select="document('../../../knowledge.xml')/pro:knowledge/pro:software[pro:name=$name]" />
+        <xsl:variable name="software" as="element()*" select="document($knowledge)/pro:knowledge/pro:software[pro:name=$name]" />
 
         <pro:software>
             <xsl:attribute name="relevance" select="($software/@relevance,5)[1]" />
