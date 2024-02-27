@@ -19,7 +19,7 @@ profile =
 
 knowledge =
 	element knowledge {
-		(software | hardware )*
+		software*
 	}
 
 [ a:documentation [ "version information" ]]
@@ -80,7 +80,7 @@ job =
 		skill*,
 		details*, 
 		software_reference*,
-		(software | hardware )*
+		software*
 	}
 
 title = element title { (text)*, attribute xml:lang { text }? }
@@ -136,15 +136,6 @@ software =
 		(element name { text }) |
 		(element category { text }) |
 		version |
-		manufacturer
-		)+
-	}
-
-[ a:documentation [ "Used hardware" ]]
-hardware =
-	element hardware {
-		(
-		(element name { text }) |
 		manufacturer
 		)+
 	}

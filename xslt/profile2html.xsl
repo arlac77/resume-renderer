@@ -8,6 +8,8 @@
     xmlns:i18n="http://mfelten.de/mf/i18n" exclude-result-prefixes="xs xsi pro i18n">
 
     <xsl:include href="profile.xsl" />
+    <xsl:include href="knowledge.xsl" />
+    <xsl:include href="i18n.xsl" />
 
     <xsl:output indent="yes" />
 

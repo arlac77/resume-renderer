@@ -5,7 +5,7 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:pro="http://mfelten.de/mf/profile"
-    xmlns:i18n="http://mfelten.de/mf/i18n" exclude-result-prefixes="xs xsi pro i18n">
+    xmlns:i18n="http://mfelten.de/mf/i18n" exclude-result-prefixes="xs xsi pro">
 
     <xsl:function name="pro:software" as="element(pro:software)">
         <xsl:param name="name" as="xs:string*" />
@@ -15,12 +15,6 @@
             <xsl:attribute name="relevance" select="($software/@relevance,5)[1]" />
             <xsl:copy-of select="$software/@*[name()!='relevance'],$software/*" />
         </pro:software>
-    </xsl:function>
-
-    <xsl:function name="i18n:lookup">
-        <xsl:param name="key" />
-        <xsl:variable name="i18n.entries" as="element(i18n:entry)*" select="document($bundles)//i18n:locale[@language=$lang]/i18n:group/i18n:entry" />
-        <xsl:value-of select="document($bundles)//i18n:locale[@language=$lang]/i18n:group/i18n:entry[@id = $key]/@value" />
     </xsl:function>
 
     <xsl:template match="text()" mode="collect-skills" />

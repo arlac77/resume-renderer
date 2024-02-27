@@ -8,6 +8,8 @@
 	xmlns:pro="http://mfelten.de/mf/profile"
 	xmlns:i18n="http://mfelten.de/mf/i18n" exclude-result-prefixes="xs xsi pro i18n">
 
+	<xsl:include href="knowledge.xsl" />
+
 	<xsl:output indent="yes"/>
 
 	<xsl:param name="content" select="'profile'"/>
@@ -456,49 +458,6 @@
 				</fo:block>
 			</xsl:for-each>
 
-			<xsl:if test="pro:hardware">
-				<fo:block space-after="4mm"/>
-				<fo:table>
-					<fo:table-column column-width="50mm"/>
-					<fo:table-column column-width="60mm"/>
-
-					<fo:table-header>
-						<fo:table-row height="15pt" background-color="#AAAAAA">							<!-- padding-top="4pt" -->
-							<fo:table-cell>
-								<fo:block><xsl:value-of select="$i18n.entries[@id='manufacturer']/@value"/></fo:block>
-							</fo:table-cell>
-							<fo:table-cell>
-								<fo:block><xsl:value-of select="$i18n.entries[@id='model']/@value"/></fo:block>
-							</fo:table-cell>
-						</fo:table-row>
-					</fo:table-header>
-
-					<fo:table-body>
-						<xsl:for-each-group select="pro:hardware" group-by="pro:manufacturer">
-							<fo:table-row height="11pt">
-								<xsl:if test="position() mod 2 = 0">
-									<xsl:attribute name="background-color">#E0E0E0</xsl:attribute>
-								</xsl:if>
-								<fo:table-cell>
-									<fo:block>
-										<xsl:value-of select="pro:manufacturer"/>
-									</fo:block>
-								</fo:table-cell>
-								<fo:table-cell>
-									<fo:block>
-										<xsl:for-each select="current-group()">
-											<xsl:if test="position() &gt; 1">
-												<xsl:text>, </xsl:text>
-											</xsl:if>
-											<xsl:value-of select="pro:name"/>
-										</xsl:for-each>
-									</fo:block>
-								</fo:table-cell>
-							</fo:table-row>
-						</xsl:for-each-group>
-					</fo:table-body>
-				</fo:table>
-			</xsl:if>
 			<xsl:if test="pro:software">
 				<fo:block space-after="4mm"/>
 
@@ -508,7 +467,7 @@
 					<fo:table-column column-width="60mm"/>
 
 					<fo:table-header>
-						<fo:table-row height="15pt" background-color="#AAAAAA">							<!-- padding-top="4pt" -->
+						<fo:table-row height="15pt" background-color="#AAAAAA">
 							<fo:table-cell>
 								<fo:block><xsl:value-of select="$i18n.entries[@id='manufacturer']/@value"/></fo:block>
 							</fo:table-cell>
@@ -527,6 +486,8 @@
 
 					<fo:table-body>
 						<xsl:for-each select="pro:software">
+							<xsl:sort select="pro:category[1]" order="descending"/>
+
 							<fo:table-row height="11pt">
 								<xsl:if test="position() mod 2 = 0">
 									<xsl:attribute name="background-color">#E0E0E0</xsl:attribute>
@@ -553,7 +514,6 @@
 			</xsl:if>
 		</fo:block>
 	</xsl:template>
-
 
 	<xsl:template match="pro:job" mode="project_overview">
 		<xsl:param name="i18n.entries" as="element(i18n:entry)*" tunnel="yes"/>

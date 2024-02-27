@@ -7,6 +7,7 @@
     xmlns="http://mfelten.de/mf/profile" exclude-result-prefixes="pro i18n">
 
     <xsl:include href="profile.xsl" />
+    <xsl:include href="i18n.xsl" />
 
     <xsl:param name="dest" select="'build/profile'" />
     <xsl:param name="lang" select="'de'" />
