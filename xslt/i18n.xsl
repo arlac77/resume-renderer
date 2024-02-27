@@ -4,8 +4,7 @@
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:pro="http://mfelten.de/mf/profile"
-    xmlns:i18n="http://mfelten.de/mf/i18n" exclude-result-prefixes="xs xsi pro i18n">
+    xmlns:i18n="http://mfelten.de/mf/i18n" exclude-result-prefixes="xs xsi i18n">
 
     <xsl:function name="i18n:lookup">
         <xsl:param name="key" />
