@@ -9,15 +9,15 @@
 
   <xsl:template match="pro:knowledge">
     <knowledge>
-      <xsl:for-each select="//pro:software">
+      <xsl:for-each select="//pro:skill">
         <xsl:sort select="(pro:name)[1]"/>
-        <software>
+        <skill>
           <xsl:copy-of select="@relevance"/>
           <xsl:copy-of select="pro:name"/>
           <xsl:copy-of select="pro:category"/>
           <xsl:copy-of select="pro:manufacturer"/>
           <xsl:copy-of select="pro:version"/>
-        </software>
+        </skill>
       </xsl:for-each>
     </knowledge>
   </xsl:template>

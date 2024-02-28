@@ -19,7 +19,7 @@ profile =
 
 knowledge =
 	element knowledge {
-		software*
+		skill*
 	}
 
 [ a:documentation [ "version information" ]]
@@ -56,8 +56,6 @@ language =
 		attribute type { text }
 	}
 
-skill = element skill { title?, software_reference*, attribute level { text }, attribute category { text }}
-
 [ a:documentation [ "Work focus" ]]
 focus =
 	element focus {
@@ -77,10 +75,9 @@ job =
 		(element customer { text }),
 		contact*,
 		summary*,
-		skill*,
 		details*, 
-		software_reference*,
-		software*
+		skill_reference*,
+		skill*
 	}
 
 title = element title { (text)*, attribute xml:lang { text }? }
@@ -121,17 +118,17 @@ github = element github { text }
 telegram = element telegram { text }
 picture = element picture { text }
 
-software_reference = element software {
+skill_reference = element skill {
 	attribute name { text },
-	attribute skill { text }
+	attribute level { text }
 }
 
-[ a:documentation [ "Used software" ]]
-software =
-	element software {
+[ a:documentation [ "Used software hardware mthologies" ]]
+skill =
+	element skill {
 		attribute relevance { text }?,
 		attribute href { text }?,
-		attribute skill { text }?,
+		attribute level { text }?,
 		(
 		(element name { text }) |
 		(element category { text }) |

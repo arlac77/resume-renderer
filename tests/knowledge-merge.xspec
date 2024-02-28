@@ -2,7 +2,7 @@
 
 <t:description xmlns:t="http://www.jenitennison.com/xslt/xspec"
                xmlns:xs="http://www.w3.org/2001/XMLSchema"
-               xmlns:pro="http://mfelten.de/mf/profile" stylesheet="../xslt/profile2knowledge.xsl">
+               xmlns:pro="http://mfelten.de/mf/profile" stylesheet="../xslt/profile2skills.xsl">
     
     <t:scenario label="merge software">
         <t:call function="pro:merge_software">

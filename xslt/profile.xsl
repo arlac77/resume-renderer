@@ -7,14 +7,14 @@
     xmlns:pro="http://mfelten.de/mf/profile"
     xmlns:i18n="http://mfelten.de/mf/i18n" exclude-result-prefixes="xs xsi pro">
 
-    <xsl:function name="pro:software" as="element(pro:software)">
+    <xsl:function name="pro:skill" as="element(pro:skill)">
         <xsl:param name="name" as="xs:string*" />
-        <xsl:variable name="software" as="element()*" select="document($knowledge)/pro:knowledge/pro:software[pro:name=$name]" />
+        <xsl:variable name="skill" as="element()*" select="document($skills.url)/pro:knowledge/pro:skill[pro:name=$name]" />
 
-        <pro:software>
-            <xsl:attribute name="relevance" select="($software/@relevance,5)[1]" />
-            <xsl:copy-of select="$software/@*[name()!='relevance'],$software/*" />
-        </pro:software>
+        <pro:skill>
+            <xsl:attribute name="relevance" select="($skill/@relevance,5)[1]" />
+            <xsl:copy-of select="$skill/@*[name()!='relevance'],$skill/*" />
+        </pro:skill>
     </xsl:function>
 
     <xsl:template match="text()" mode="collect-skills" />
@@ -28,27 +28,27 @@
         </skill>
     </xsl:template>
 
-    <xsl:template match="pro:software[@skill]" mode="collect-skills">
-        <xsl:variable name="software" as="element(pro:software)" select="pro:software((@name,pro:name)[1])" />
+    <xsl:template match="pro:skill[@level]" mode="collect-skills">
+        <xsl:variable name="skill" as="element(pro:skill)" select="pro:skill((@name,pro:name)[1])" />
 
         <xsl:choose>
-            <xsl:when test="$software[@relevance>=$relevance]">
+            <xsl:when test="$skill[@relevance>=$relevance]">
                 <skill>
                     <xsl:attribute name="name">
-                        <xsl:value-of select="$software/pro:name[1]" />
+                        <xsl:value-of select="$skill/pro:name[1]" />
                     </xsl:attribute>
                     <xsl:attribute name="level">
-                        <xsl:value-of select="@skill" />
+                        <xsl:value-of select="@level" />
                     </xsl:attribute>
                     <xsl:attribute name="category">
-                        <xsl:value-of select="($software/pro:category)[1]" />
+                        <xsl:value-of select="($skill/pro:category)[1]" />
                     </xsl:attribute>
                 </skill>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:message>
-                    <xsl:value-of select="$software/pro:name[1]" />
- ,                    <xsl:value-of select="$software/@relevance" />
+                    <xsl:value-of select="$skill/pro:name[1]" />
+ ,                    <xsl:value-of select="$skill/@relevance" />
                 </xsl:message>
             </xsl:otherwise>
         </xsl:choose>

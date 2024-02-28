@@ -6,7 +6,7 @@
   xmlns="http://mfelten.de/mf/profile" exclude-result-prefixes="pro">
 
   <xsl:output indent="yes"/>
-  <xsl:param name="knowledge" select="'../knowledge.xml'" />
+  <xsl:param name="skills.url" select="'../skills.xml'" />
 
   <xsl:template match="processing-instruction('xml-model')">
     <xsl:copy-of select="."/>
@@ -14,9 +14,9 @@
 
   <xsl:template match="pro:profile">
     <knowledge>
-      <xsl:for-each-group select="(document($knowledge)/pro:knowledge/pro:software,//pro:software)" group-by="pro:name[1]">
+      <xsl:for-each-group select="(document($skills.url)/pro:knowledge/pro:skill,//pro:skill)" group-by="pro:name[1]">
         <xsl:sort select="pro:name[1]"/>
-        <software>
+        <skill>
           <xsl:copy-of select="current-group()/@*"/>
           <xsl:copy-of select="pro:name"/>
           <xsl:for-each select="distinct-values(current-group()/pro:category)">
@@ -37,7 +37,7 @@
               <xsl:value-of select="."/>
             </version>
           </xsl:for-each>
-        </software>
+        </skill>
       </xsl:for-each-group>
     </knowledge>
   </xsl:template>

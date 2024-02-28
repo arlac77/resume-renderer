@@ -8,7 +8,7 @@
 	xmlns:pro="http://mfelten.de/mf/profile"
 	xmlns:i18n="http://mfelten.de/mf/i18n" exclude-result-prefixes="xs xsi pro i18n">
 
-	<xsl:include href="knowledge.xsl" />
+	<xsl:include href="skill.xsl" />
 
 	<xsl:output indent="yes"/>
 
@@ -17,10 +17,12 @@
 	<xsl:param name="lang" select="'de'"/>
     <xsl:param name="bundles" select="'../i18n/profile.xml'" />
     <xsl:param name="resources" select="'../resources'" />
-	<xsl:param name="knowledge" select="'../knowledge.xml'" />
+    <xsl:param name="skills.url" select="'../skills.xml'" />
 	<xsl:param name="with_contact" select="true()"/>
 	<xsl:param name="relevance" select="5" />
 	<xsl:param name="from_date" select="'1966-12-14'"/>
+
+    <xsl:variable name="skill" as="element(pro:skill)*" select="pro:skills_initialize()" />
 
 	<xsl:template match="/pro:profile">
 		<xsl:variable name="i18n.entries" as="element(i18n:entry)*" select="document($bundles)//i18n:locale[@language=$lang]/i18n:group/i18n:entry"/>
@@ -69,7 +71,7 @@
 							<fo:table-column column-width="90mm"/>
 
 							<fo:table-header>
-								<fo:table-row height="14pt" background-color="#AAAAAA">									<!-- padding-top="4pt" -->
+								<fo:table-row height="14pt" background-color="#AAAAAA">
 									<fo:table-cell>
 										<fo:block>
 											<xsl:value-of select="$i18n.entries[@id='number']/@value"/>
@@ -458,7 +460,7 @@
 				</fo:block>
 			</xsl:for-each>
 
-			<xsl:if test="pro:software">
+			<xsl:if test="pro:skill">
 				<fo:block space-after="4mm"/>
 
 				<fo:table>
@@ -485,7 +487,7 @@
 					</fo:table-header>
 
 					<fo:table-body>
-						<xsl:for-each select="pro:software">
+						<xsl:for-each select="pro:skill">
 							<xsl:sort select="pro:category[1]" order="descending"/>
 
 							<fo:table-row height="11pt">

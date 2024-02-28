@@ -8,7 +8,7 @@
     xmlns:i18n="http://mfelten.de/mf/i18n" exclude-result-prefixes="xs xsi pro i18n">
 
     <xsl:include href="profile.xsl" />
-    <xsl:include href="knowledge.xsl" />
+    <xsl:include href="skill.xsl" />
     <xsl:include href="i18n.xsl" />
 
     <xsl:output indent="yes" />
@@ -17,10 +17,12 @@
     <xsl:param name="lang" select="'de'" />
     <xsl:param name="bundles" select="'../i18n/profile.xml'" />
     <xsl:param name="resources" select="'../resources'" />
-    <xsl:param name="knowledge" select="'../knowledge.xml'" />
+    <xsl:param name="skills.url" select="'../skills.xml'" />
     <xsl:param name="with_contact" select="true()" />
     <xsl:param name="relevance" select="5" />
     <xsl:param name="from_date" select="'1966-12-14'" />
+
+    <xsl:variable name="skill" as="element(pro:skill)*" select="pro:skills_initialize()" />
 
     <xsl:template match="/pro:key">
         <b>
@@ -36,7 +38,7 @@
                     <xsl:attribute name="content" select="concat(pro:focus/pro:item[1]/pro:title,' ',replace(pro:version,'\D',''))" />
                 </meta>
                 <meta name="keywords">
-                    <xsl:attribute name="content" select="concat('resume,cv,',pro:person/pro:name,' ',pro:person/pro:surname,string-join(distinct-values(//pro:software[pro:software(pro:name)/@relevance>=$relevance]/pro:name[1]),','))" />
+                    <xsl:attribute name="content" select="concat('resume,cv,',pro:person/pro:name,' ',pro:person/pro:surname,string-join(distinct-values(//pro:skill[pro:skill(pro:name)/@relevance>=$relevance]/pro:name[1]),','))" />
                 </meta>
                 <meta name="author">
                     <xsl:attribute name="content" select="concat(pro:person/pro:name,' ',pro:person/pro:surname)" />
@@ -154,7 +156,7 @@
                                     </h3>
                                 </header>
                                 <ul class="mt-1.5 mb-6 flex flex-wrap text-m leading-normal">
-                                    <xsl:for-each select="(for $name in distinct-values(//pro:software/pro:name[1]) return pro:software($name))[@relevance>=$relevance]">
+                                    <xsl:for-each select="(for $name in distinct-values(//pro:skill/pro:name[1]) return pro:skill($name))[@relevance>=$relevance]">
                                         <xsl:sort select="translate(pro:name[1],'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqestuvwxyz')" />
                                         <li class="px-3 mr-1.5 mt-1.5 text-base text-gray-700 leading-relaxed print:bg-white print:border-inset bg-gray-250">
                                             <xsl:choose>

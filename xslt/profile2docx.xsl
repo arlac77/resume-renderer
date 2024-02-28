@@ -7,16 +7,19 @@
     xmlns="http://mfelten.de/mf/profile" exclude-result-prefixes="pro i18n">
 
     <xsl:include href="profile.xsl" />
+    <xsl:include href="skill.xsl" />
     <xsl:include href="i18n.xsl" />
 
     <xsl:param name="dest" select="'build/profile'" />
     <xsl:param name="lang" select="'de'" />
     <xsl:param name="bundles" select="'../i18n/profile.xml'" />
     <xsl:param name="resources" select="'../resources'" />
-    <xsl:param name="knowledge" select="'../knowledge.xml'" />
+    <xsl:param name="skills.url" select="'../skills.xml'" />
     <xsl:param name="with_contact" select="true()" />
     <xsl:param name="relevance" select="5" />
     <xsl:param name="from_date" select="'1966-12-14'" />
+
+    <xsl:variable name="skill" as="element(pro:skill)*" select="pro:skills_initialize()" />
 
     <xsl:output indent="yes" />
 
