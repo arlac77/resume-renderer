@@ -230,7 +230,7 @@
 							</fo:block>
 
 							<fo:list-block>
-								<xsl:for-each select="pro:focus/pro:item/pro:description[@xml:lang=$lang or not(exists(@xml:lang))]">
+								<xsl:for-each select="pro:focus/pro:item/pro:details[@xml:lang=$lang or not(exists(@xml:lang))]">
 									<fo:list-item>
 										<fo:list-item-label end-indent="label-end()">
 											<fo:block>–</fo:block>

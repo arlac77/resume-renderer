@@ -24,7 +24,7 @@
 
     <xsl:variable name="skill" as="element(pro:skill)*" select="pro:skills_initialize()" />
 
-    <xsl:template match="/pro:key">
+    <xsl:template match="/pro:skill[text()]">
         <b>
             <xsl:apply-templates />
         </b>
@@ -80,7 +80,7 @@
                                             </p>
                                         </header>
 
-                                        <xsl:for-each select="pro:description[@xml:lang=$lang or not(exists(@xml:lang))]">
+                                        <xsl:for-each select="pro:details[@xml:lang=$lang or not(exists(@xml:lang))]">
                                             <p class="mt-1.5 text-m text-gray-700 leading-normal">
                                                 <xsl:value-of select="." />
                                             </p>

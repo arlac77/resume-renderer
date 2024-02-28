@@ -61,7 +61,7 @@ focus =
 	element focus {
 		(element item {
 			title+,
-			description*,
+			details*,
 			text, (attribute since { text })? })*
 	}
 
@@ -82,17 +82,11 @@ job =
 
 title = element title { (text)*, attribute xml:lang { text }? }
 
-summary = element summary { (text, key?)*, attribute xml:lang { text }, (attribute kind { text })? }
+summary = element summary { text_with_skills*, attribute xml:lang { text }, (attribute kind { text })? }
 
-details = element details { (element p { (text, key?)* })*, attribute xml:lang { text } }
+text_with_skills = (text, skill_reference?)
 
-description = element description { text, attribute xml:lang { text }? }
-
-[ a:documentation [ "Key word" ]]
-key =
-	element key {
-		text
-	}
+details = element details { (element p { text_with_skills* }|text_with_skills)*, attribute xml:lang { text }? }
 
 [ a:documentation [ "Contract information" ]]
 contract =
@@ -119,8 +113,8 @@ telegram = element telegram { text }
 picture = element picture { text }
 
 skill_reference = element skill {
-	attribute name { text },
-	attribute level { text }
+ text,
+ (attribute level { text })?
 }
 
 [ a:documentation [ "Used software hardware mthologies" ]]
