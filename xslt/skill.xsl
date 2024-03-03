@@ -12,7 +12,7 @@
 
     <xsl:function name="pro:skill_with_category" as="element(pro:skill)*">
         <xsl:param name="skills" as="element(pro:skill)*"/>
-        <xsl:param name="skill"  as="element(pro:skill)*" />
+        <xsl:param name="skill" as="element(pro:skill)*" />
         <xsl:param name="category" as="xs:string*" />
         <xsl:copy-of select="$skills[pro:name/text()=$skill/pro:name/text() and pro:category/text()=$category]"/>
     </xsl:function>
