@@ -24,7 +24,7 @@
 
     <xsl:variable name="skill" as="element(pro:skill)*" select="pro:skills_initialize()" />
 
-    <xsl:template match="/pro:skill[text()]">
+    <xsl:template match="pro:skill[text()]">
         <b>
             <xsl:apply-templates />
         </b>
