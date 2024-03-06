@@ -18,7 +18,7 @@
     <xsl:variable name="extracted_skills" as="element(pro:skill)*">
       <xsl:apply-templates select="." mode="extract_skills"/>
     </xsl:variable>
-    
+
     <knowledge>
       <xsl:for-each-group select="(document($skills.url)/pro:knowledge/pro:skill,$extracted_skills)" group-by="pro:name[1]">
         <xsl:sort select="pro:name[1]"/>
@@ -33,20 +33,24 @@
           </xsl:for-each>
           <xsl:for-each select="distinct-values(current-group()/pro:manufacturer)">
             <xsl:sort select="."/>
-            <manufacturer>
-              <xsl:value-of select="."/>
-            </manufacturer>
+            <xsl:if test="string-length(.)&gt;0">
+              <manufacturer>
+                <xsl:value-of select="."/>
+              </manufacturer>
+            </xsl:if>
           </xsl:for-each>
           <xsl:for-each select="distinct-values(current-group()/pro:version)">
             <xsl:sort select="replace(., '[^\d\.]', '')" data-type="number"/>
-            <version>
-              <xsl:value-of select="."/>
-            </version>
+            <xsl:if test="string-length(.)&gt;0">
+              <version>
+                <xsl:value-of select="."/>
+              </version>
+            </xsl:if>
           </xsl:for-each>
         </skill>
       </xsl:for-each-group>
     </knowledge>
-  
+
   </xsl:template>
 
 </xsl:stylesheet>
