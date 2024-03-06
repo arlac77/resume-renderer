@@ -133,7 +133,7 @@
                                         <xsl:sort select="pro:category[1]" />
                                         <xsl:sort select="pro:name[1]" />
 
-                                        <xsl:if test="@level">
+                                        <xsl:if test="@level and @relevance>=$relevance">
                                             <section class="mb-4 col-break-avoid">
                                                 <header>
                                                     <span class="text-lg text-gray-700 font-semibold leading-heading">
@@ -155,7 +155,7 @@
                                     </h3>
                                 </header>
                                 <ul class="mt-1.5 mb-6 flex flex-wrap text-m leading-normal">
-                                    <xsl:for-each select="(for $name in distinct-values($extracted_skills/pro:name[1]) return pro:skill($name))[@relevance>=$relevance]">
+                                    <xsl:for-each select="(for $name in distinct-values($extracted_skills/pro:name[1]) return pro:skill($name))[@relevance>=$relevance and not(@level)]">
                                         <xsl:sort select="translate(pro:name[1],'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqestuvwxyz')" />
                                         <li class="px-3 mr-1.5 mt-1.5 text-base text-gray-700 leading-relaxed print:bg-white print:border-inset bg-gray-250">
                                             <xsl:choose>
