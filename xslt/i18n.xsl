@@ -9,7 +9,7 @@
     <xsl:function name="i18n:lookup">
         <xsl:param name="key" />
         <xsl:variable name="i18n.entries" as="element(i18n:entry)*" select="document($bundles)//i18n:locale[@language=$lang]/i18n:group/i18n:entry" />
-        <xsl:value-of select="document($bundles)//i18n:locale[@language=$lang]/i18n:group/i18n:entry[@id = $key]/@value" />
+        <xsl:value-of select="(document($bundles)//i18n:locale[@language=$lang]/i18n:group/i18n:entry[@id = $key]/@value,concat('***',$key,'***'))[1]" />
     </xsl:function>
     
 </xsl:stylesheet>

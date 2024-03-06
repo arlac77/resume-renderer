@@ -121,31 +121,30 @@
                                 </div>
                             </section>
 
+                            <xsl:variable name="extracted_skills" as="element(pro:skill)*" select="pro:extract_skills(.)"/>
+
                             <section class="mt-7">
                                 <div class="col-break-avoid">
                                     <h2 class="mb-4 text-2sm text-gray-500 font-bold print:font-normal tracking-widest">
                                         <xsl:value-of select="i18n:lookup('SKILLS')" />
                                     </h2>
 
-                                    <xsl:variable name="skills" as="element()*">
-                                        <xsl:apply-templates select="." mode="collect-skills" />
-                                    </xsl:variable>
+                                    <xsl:for-each-group select="$extracted_skills" group-by="pro:name[1]">
+                                        <xsl:sort select="pro:category[1]" />
+                                        <xsl:sort select="pro:name[1]" />
 
-                                    <xsl:for-each-group select="$skills" group-by="@name">
-                                        <xsl:sort select="@category" />
-                                        <xsl:sort select="@level" />
-                                        <xsl:sort select="@name" />
-
-                                        <section class="mb-4 col-break-avoid">
-                                            <header>
-                                                <span class="text-lg text-gray-700 font-semibold leading-heading">
-                                                    <xsl:value-of select="@name" />
-                                                </span>
+                                        <xsl:if test="@level">
+                                            <section class="mb-4 col-break-avoid">
+                                                <header>
+                                                    <span class="text-lg text-gray-700 font-semibold leading-heading">
+                                                        <xsl:value-of select="pro:name[1]" />
+                                                    </span>
         &#160; <span class="text-m text-gray-600 leading-normal">
-                                                <xsl:value-of select="i18n:lookup(@level)" />
-                                            </span>
-                                        </header>
-                                    </section>
+                                                    <xsl:value-of select="i18n:lookup(@level)" />
+                                                </span>
+                                            </header>
+                                        </section>
+                                    </xsl:if>
                                 </xsl:for-each-group>
                             </div>
 
@@ -156,7 +155,7 @@
                                     </h3>
                                 </header>
                                 <ul class="mt-1.5 mb-6 flex flex-wrap text-m leading-normal">
-                                    <xsl:for-each select="(for $name in distinct-values(//pro:skill/pro:name[1]) return pro:skill($name))[@relevance>=$relevance]">
+                                    <xsl:for-each select="(for $name in distinct-values($extracted_skills/pro:name[1]) return pro:skill($name))[@relevance>=$relevance]">
                                         <xsl:sort select="translate(pro:name[1],'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqestuvwxyz')" />
                                         <li class="px-3 mr-1.5 mt-1.5 text-base text-gray-700 leading-relaxed print:bg-white print:border-inset bg-gray-250">
                                             <xsl:choose>

@@ -178,11 +178,11 @@
                         </w:p>
                     </w:tc>
 
-                    <xsl:variable name="skills" as="element()*">
-                        <xsl:apply-templates select="." mode="collect-skills" />
+                    <xsl:variable name="extracted_skills" as="element(pro:skill)*">
+                        <xsl:apply-templates select="." mode="extract_skills"/>
                     </xsl:variable>
 
-                    <xsl:for-each-group select="$skills" group-by="@name">
+                    <xsl:for-each-group select="$extracted_skills" group-by="@name">
                         <xsl:sort select="@category" />
                         <xsl:sort select="@level" />
                         <xsl:sort select="@name" />
