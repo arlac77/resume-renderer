@@ -10,12 +10,7 @@
   <xsl:output indent="yes"/>
   <xsl:param name="skills.url" select="'../skills.xml'" />
 
-  <xsl:variable name="skills" as="element(pro:skill)*" select="pro:skills_initialize()" />
-
-  <xsl:template match="text()" />
-
-  <xsl:template match="pro:skill">
-    <xsl:copy-of select="pro:skill_with_category($skills,.,'messaging')"/>
+  <xsl:template match="/pro:profile">
+    <xsl:apply-templates select="." mode="extract_skills"/>
   </xsl:template>
-
 </xsl:stylesheet>

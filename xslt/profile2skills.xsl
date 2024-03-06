@@ -5,6 +5,8 @@
   xmlns:pro="http://mfelten.de/mf/profile"
   xmlns="http://mfelten.de/mf/profile" exclude-result-prefixes="pro">
 
+  <xsl:include href="skill.xsl" />
+
   <xsl:output indent="yes"/>
   <xsl:param name="skills.url" select="'../skills.xml'" />
 
@@ -12,9 +14,13 @@
     <xsl:copy-of select="."/>
   </xsl:template>
 
-  <xsl:template match="pro:profile">
+  <xsl:template match="/pro:profile">
+    <xsl:variable name="extracted_skills" as="element(pro:skill)*">
+      <xsl:apply-templates select="." mode="extract_skills"/>
+    </xsl:variable>
+    
     <knowledge>
-      <xsl:for-each-group select="(document($skills.url)/pro:knowledge/pro:skill,//pro:skill)" group-by="pro:name[1]">
+      <xsl:for-each-group select="(document($skills.url)/pro:knowledge/pro:skill,$extracted_skills)" group-by="pro:name[1]">
         <xsl:sort select="pro:name[1]"/>
         <skill>
           <xsl:copy-of select="current-group()/@*"/>
@@ -40,6 +46,7 @@
         </skill>
       </xsl:for-each-group>
     </knowledge>
+  
   </xsl:template>
 
 </xsl:stylesheet>
