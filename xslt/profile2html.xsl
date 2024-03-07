@@ -31,6 +31,8 @@
     </xsl:template>
 
     <xsl:template match="/pro:profile">
+        <xsl:variable name="extracted_skills" as="element(pro:skill)*" select="pro:extract_skills(.)"/>
+
         <html>
             <xsl:attribute name="lang" select="$lang" />
             <head>
@@ -38,7 +40,7 @@
                     <xsl:attribute name="content" select="concat(pro:focus/pro:item[1]/pro:title,' ',replace(pro:version,'\D',''))" />
                 </meta>
                 <meta name="keywords">
-                    <xsl:attribute name="content" select="concat('resume,cv,',pro:person/pro:name,' ',pro:person/pro:surname,string-join(distinct-values(//pro:skill[pro:skill(pro:name)/@relevance>=$relevance]/pro:name[1]),','))" />
+                    <xsl:attribute name="content" select="concat('resume,cv,',pro:person/pro:name,' ',pro:person/pro:surname,string-join(distinct-values($extracted_skills[@relevance>=$relevance]/pro:name[1]),','))" />
                 </meta>
                 <meta name="author">
                     <xsl:attribute name="content" select="concat(pro:person/pro:name,' ',pro:person/pro:surname)" />
@@ -120,8 +122,6 @@
                                     </xsl:for-each>
                                 </div>
                             </section>
-
-                            <xsl:variable name="extracted_skills" as="element(pro:skill)*" select="pro:extract_skills(.)"/>
 
                             <section class="mt-7">
                                 <div class="col-break-avoid">
