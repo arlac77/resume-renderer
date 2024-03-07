@@ -26,7 +26,6 @@
           <xsl:copy-of select="current-group()/@*"/>
           <xsl:copy-of select="pro:name"/>
           <xsl:for-each select="distinct-values(current-group()/pro:category)">
-            <xsl:sort select="."/>
             <category>
               <xsl:value-of select="."/>
             </category>
