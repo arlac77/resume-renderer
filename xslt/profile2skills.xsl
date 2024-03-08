@@ -20,7 +20,7 @@
     </xsl:variable>
 
     <knowledge>
-      <xsl:for-each-group select="(document($skills.url)/pro:knowledge/pro:skill,$extracted_skills)" group-by="pro:name[1]">
+      <xsl:for-each-group select="(document($skills.url)/pro:knowledge/pro:skill,$extracted_skills)" group-by="translate(pro:name[1],'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqestuvwxyz')">
         <xsl:sort select="pro:name[1]"/>
         <skill>
           <xsl:copy-of select="current-group()/@*"/>
