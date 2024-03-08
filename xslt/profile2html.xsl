@@ -25,9 +25,9 @@
     <xsl:variable name="skill" as="element(pro:skill)*" select="pro:skills_initialize()" />
 
     <xsl:template match="pro:skill[text()]">
-        <b>
+        <span class="skill">
             <xsl:apply-templates />
-        </b>
+        </span>
     </xsl:template>
 
     <xsl:template match="/pro:profile">
@@ -84,7 +84,7 @@
 
                                         <xsl:for-each select="pro:details[@xml:lang=$lang or not(exists(@xml:lang))]">
                                             <p class="mt-1.5 text-m text-gray-700 leading-normal">
-                                                <xsl:value-of select="." />
+                                                <xsl:apply-templates select="."/>
                                             </p>
                                         </xsl:for-each>
                                     </section>
@@ -115,7 +115,7 @@
                                                     <b class="font-normal print:font-medium text-gray-600 print:text-black">
         (                                                        <xsl:value-of select="position()" />
  ) </b>
-                                                    <xsl:value-of select="." />
+                                                    <xsl:apply-templates select="."/>
                                                 </xsl:for-each>
                                             </p>
                                         </section>
