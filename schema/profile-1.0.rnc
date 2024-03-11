@@ -83,7 +83,7 @@ title = element title { (text)*, attribute xml:lang { text }? }
 
 text_with_skills = (text, skill_reference?)
 
-details = element details { (element p { text_with_skills* }|text_with_skills)*, attribute xml:lang { text }?, (attribute kind { text })? }
+details = element details { (element p { text_with_skills* }|text_with_skills)*, attribute xml:lang { text }?, (attribute kind {  string "one-line" })? }
 
 [ a:documentation [ "Contract information" ]]
 contract =
