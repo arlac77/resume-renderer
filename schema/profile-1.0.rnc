@@ -74,7 +74,6 @@ job =
 		contract?,
 		(element customer { text }),
 		contact*,
-		summary*,
 		details*, 
 		skill_reference*,
 		skill*
@@ -82,11 +81,9 @@ job =
 
 title = element title { (text)*, attribute xml:lang { text }? }
 
-summary = element summary { text_with_skills*, attribute xml:lang { text }, (attribute kind { text })? }
-
 text_with_skills = (text, skill_reference?)
 
-details = element details { (element p { text_with_skills* }|text_with_skills)*, attribute xml:lang { text }? }
+details = element details { (element p { text_with_skills* }|text_with_skills)*, attribute xml:lang { text }?, (attribute kind { text })? }
 
 [ a:documentation [ "Contract information" ]]
 contract =

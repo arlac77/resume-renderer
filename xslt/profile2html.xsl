@@ -97,7 +97,7 @@
                                         <xsl:value-of select="i18n:lookup('EXPERIENCE')" />
                                     </h2>
 
-                                    <xsl:for-each select="pro:job[pro:from &gt; $from_date and pro:customer and (pro:summary or pro:title)]">
+                                    <xsl:for-each select="pro:job[pro:from &gt; $from_date and pro:customer and (pro:details or pro:title)]">
                                         <xsl:sort select="pro:to" order="descending" />
                                         <section class="mb-4 col-break-avoid">
                                             <header>
@@ -111,7 +111,7 @@
                                                 </p>
                                             </header>
                                             <p class="mt-1.5 text-m text-gray-700 leading-normal">
-                                                <xsl:for-each select="pro:summary[@xml:lang=$lang]">
+                                                <xsl:for-each select="pro:details[@xml:lang=$lang]">
                                                     <b class="font-normal print:font-medium text-gray-600 print:text-black">
         (                                                        <xsl:value-of select="position()" />
  ) </b>

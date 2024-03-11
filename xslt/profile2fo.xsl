@@ -342,7 +342,7 @@
 			</fo:table-cell>
 			<fo:table-cell>
 				<fo:block text-align="left">
-					<xsl:value-of select="(pro:summary[@xml:lang=$lang and @kind='one-line'],pro:title[@xml:lang=$lang],pro:title[not(exists(@xml:lang))])[1]"/>
+					<xsl:value-of select="(pro:details[@xml:lang=$lang and @kind='one-line'],pro:title[@xml:lang=$lang],pro:title[not(exists(@xml:lang))])[1]"/>
 				</fo:block>
 			</fo:table-cell>
 		</fo:table-row>
@@ -439,17 +439,17 @@
 			<fo:block space-after="4mm"/>
 
 			<!--
-								<xsl:if test="pro:summary[@xml:lang=$lang]">
-								<xsl:for-each select="pro:summary[@xml:lang=$lang]"> <fo:block text-align="justify" space-after.optimum="3pt">
+								<xsl:if test="pro:details[@xml:lang=$lang]">
+								<xsl:for-each select="pro:details[@xml:lang=$lang]"> <fo:block text-align="justify" space-after.optimum="3pt">
 								<xsl:value-of select="."/>
 								</fo:block>
 								</xsl:for-each>
 								</xsl:if>
 			-->
 
-			<xsl:if test="pro:summary[@xml:lang=$lang]">
+			<xsl:if test="pro:details[@xml:lang=$lang]">
 				<fo:block font-family="sans-serif" font-style="italic" text-align="justify" space-after="1pt" space-after.optimum="1pt">
-					<xsl:value-of select="string-join(pro:summary[@xml:lang=$lang], ' ')"/>
+					<xsl:value-of select="string-join(pro:details[@xml:lang=$lang], ' ')"/>
 				</fo:block>
 				<fo:block space-after="4mm"/>
 			</xsl:if>
@@ -554,7 +554,7 @@
 			</fo:table-cell>
 			<fo:table-cell>
 				<fo:block text-align="left">
-					<xsl:value-of select="(pro:summary[@xml:lang=$lang and @kind='one-line'],pro:title[@xml:lang=$lang],pro:title[not(exists(@xml:lang))])[1]"/>
+					<xsl:value-of select="(pro:details[@xml:lang=$lang and @kind='one-line'],pro:title[@xml:lang=$lang],pro:title[not(exists(@xml:lang))])[1]"/>
 				</fo:block>
 			</fo:table-cell>
 		</fo:table-row>
