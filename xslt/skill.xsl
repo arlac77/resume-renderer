@@ -28,10 +28,16 @@
     </xsl:function>
 
     <xsl:template match="pro:skill[string-length(text()) > 0]" mode="extract_skills">
+        <xsl:variable name="parts" as="xs:string+" select="tokenize(text(),'@')"/>
         <pro:skill>
             <pro:name>
-                <xsl:value-of select="text()"/>
+                <xsl:value-of select="$parts[1]"/>
             </pro:name>
+            <xsl:if test="count($parts) &gt; 1">
+                <pro:version>
+                    <xsl:value-of select="$parts[2]"/>
+                </pro:version>
+            </xsl:if>
         </pro:skill>
     </xsl:template>
 
