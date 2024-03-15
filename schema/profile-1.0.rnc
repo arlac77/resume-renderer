@@ -114,6 +114,8 @@ skill_reference = element skill {
  (attribute level { text })?
 }
 
+locale_name = element name { text*, attribute xml:lang { text }? }
+
 [ a:documentation [ "Used software hardware mthologies" ]]
 skill =
 	element skill {
@@ -121,7 +123,7 @@ skill =
 		attribute href { text }?,
 		attribute level { text }?,
 		(
-		(element name { text }) |
+		locale_name |
 		(element category { text }) |
 		version |
 		manufacturer
