@@ -70,7 +70,7 @@ job =
 	element job {
 		(element from { text }),
 		(element to { text })?,
-		title*,
+		title+,
 		contract?,
 		(element customer { text }),
 		contact*,
