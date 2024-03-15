@@ -79,7 +79,7 @@ job =
 		skill*
 	}
 
-title = element title { (text)*, attribute xml:lang { text }? }
+title = element title { text_with_skills*, attribute xml:lang { text }? }
 
 text_with_skills = (text, skill_reference?)
 
