@@ -26,8 +26,8 @@
     "update-knowledge": "xslt3 -xsl:xslt/profile2knowledge.xsl knowledge=file:$(pwd)/knowledge.xml -s:profile.xml >knowledge.xml"
   },
   "devDependencies": {
-    "semantic-release": "^24.0.0",
-    "stylelint": "^16.8.1",
+    "semantic-release": "^24.1.0",
+    "stylelint": "^16.8.2",
     "stylelint-config-standard": "^36.0.1",
     "xslt3": "^2.6.0"
   },
