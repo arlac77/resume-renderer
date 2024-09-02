@@ -63,7 +63,7 @@
                                     </div>
                                 </xsl:for-each>
                             </div>
-                            <h1 class="text-2xl font-semibold text-gray-700">
+                            <h1 itemprop="author" itemscope itemtype="https://schema.org/Person" class="text-2xl font-semibold text-gray-700">
                                 <xsl:value-of select="concat(pro:person/pro:name,' ',pro:person/pro:surname)" />
                             </h1>
                         </header>
