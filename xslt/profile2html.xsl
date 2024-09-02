@@ -54,7 +54,7 @@
             <body>
                 <main class="font-main hyphens-manual">
                     <div class="page mx-auto max-w-letter md:h-letter p-6 xsm:p-8 sm:p-9 md:p-16 bg-white">
-                        <header itemprop="author" itemscope itemtype="https://schema.org/Person" class="flex items-center mb-9">
+                        <header itemprop="author" itemscope="true" itemtype="https://schema.org/Person" class="flex items-center mb-9">
                             <div class="initials-container mr-5 text-base leading-none text-white bg-gray-700 font-medium print:bg-black px-3 py-2.5">
                                 <xsl:for-each select="pro:person/pro:initials">
                                     <div>
@@ -199,7 +199,7 @@
                                     <xsl:value-of select="i18n:lookup('CONTACT')" />
                                 </h2>
 
-                                <section class="mb-4 col-break-avoid">
+                                <section itemprop="author" itemscope="true" itemtype="https://schema.org/Person" class="mb-4 col-break-avoid">
                                     <ul>
                                         <li class="mt-1.5 flex items-start justify-start text-m text-gray-700 leading-normal">
                                             <span class="icon-parent flex items-center justify-center flex-shrink-0">
@@ -230,16 +230,16 @@
                                                 <xsl:copy-of select="document(concat($resources,'/location.svg'))" />
                                             </span>
                                             <span class="ml-1.5">
-                                                <a>
+                                                <a itemprop="address" >
                                                     <xsl:attribute name="href" select="concat('https://www.google.com/maps/search/?api=1&amp;query=',pro:person/pro:city)" />
                                                     <xsl:value-of select="pro:person/pro:postal-code" />
- -                                                    <xsl:value-of select="pro:person/pro:city" />
- ,                                                    <xsl:value-of select="i18n:lookup(pro:person/pro:country)" />
+                                                    <xsl:value-of select="pro:person/pro:city" />,
+                                                    <xsl:value-of select="i18n:lookup(pro:person/pro:country)" />
                                                 </a>
                                             </span>
                                         </li>
                                         <li class="mt-1.5 flex items-start justify-start text-m text-gray-700 leading-normal">
-                                            <span class="icon-parent flex items-center justify-center flex-shrink-0">
+                                            <span itemprop="email" class="icon-parent flex items-center justify-center flex-shrink-0">
                                                 <xsl:copy-of select="document(concat($resources,'/email.svg'))" />
                                             </span>
                                             <span class="ml-1.5">
@@ -250,7 +250,7 @@
                                             </span>
                                         </li>
                                         <li class="mt-1.5 flex items-start justify-start text-m text-gray-700 leading-normal">
-                                            <span class="icon-parent flex items-center justify-center flex-shrink-0">
+                                            <span itemprop="telephone" class="icon-parent flex items-center justify-center flex-shrink-0">
                                                 <xsl:copy-of select="document(concat($resources,'/mobile.svg'))" />
                                             </span>
                                             <span class="ml-1.5">
