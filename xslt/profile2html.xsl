@@ -40,7 +40,7 @@
                     <xsl:attribute name="content" select="concat(pro:focus/pro:item[1]/pro:title,' ',replace(pro:version,'\D',''))" />
                 </meta>
                 <meta name="keywords">
-                    <xsl:attribute name="content" select="concat('resume,cv,',pro:person/pro:name,' ',pro:person/pro:surname,string-join(distinct-values($extracted_skills[@relevance>=$relevance]/pro:name[1]),','))" />
+                    <xsl:attribute name="content" select="concat('resume,cv,',pro:person/pro:name,' ',pro:person/pro:surname,',',string-join(distinct-values($extracted_skills[@relevance>=$relevance]/pro:name[1]),','))" />
                 </meta>
                 <meta name="author">
                     <xsl:attribute name="content" select="concat(pro:person/pro:name,' ',pro:person/pro:surname)" />
