@@ -54,7 +54,7 @@
             <body>
                 <main class="font-main hyphens-manual">
                     <div class="page mx-auto max-w-letter md:h-letter p-6 xsm:p-8 sm:p-9 md:p-16 bg-white">
-                        <header class="flex items-center mb-9">
+                        <header itemprop="author" itemscope itemtype="https://schema.org/Person" class="flex items-center mb-9">
                             <div class="initials-container mr-5 text-base leading-none text-white bg-gray-700 font-medium print:bg-black px-3 py-2.5">
                                 <xsl:for-each select="pro:person/pro:initials">
                                     <div>
@@ -63,7 +63,7 @@
                                     </div>
                                 </xsl:for-each>
                             </div>
-                            <h1 itemprop="author" itemscope itemtype="https://schema.org/Person" class="text-2xl font-semibold text-gray-700">
+                            <h1 itemprop="name" class="text-2xl font-semibold text-gray-700">
                                 <xsl:value-of select="concat(pro:person/pro:name,' ',pro:person/pro:surname)" />
                             </h1>
                         </header>
