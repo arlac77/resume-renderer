@@ -157,7 +157,7 @@
                                 <ul class="mt-1.5 mb-6 flex flex-wrap text-m leading-normal">
                                     <xsl:for-each select="(for $name in distinct-values($extracted_skills/pro:name[1]) return pro:skill($name))[@relevance>=$relevance and not(@level)]">
                                         <xsl:sort select="translate(pro:name[1],'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqestuvwxyz')" />
-                                        <li class="px-3 mr-1.5 mt-1.5 text-base text-gray-700 leading-relaxed print:bg-white print:border-inset bg-gray-400">
+                                        <li class="px-3 mr-1.5 mt-1.5 text-base text-gray-700 leading-relaxed print:bg-white print:border-inset bg-gray-300">
                                             <xsl:choose>
                                                 <xsl:when test="@href">
                                                     <a>
@@ -182,7 +182,7 @@
                                 </header>
                                 <ul class="py-1.5 leading-normal flex flex-wrap">
                                     <xsl:for-each select="pro:language">
-                                        <li class="px-3 mr-1.5 mt-1.5 text-base text-gray-700 leading-relaxed print:bg-white print:border-inset bg-gray-400">
+                                        <li class="px-3 mr-1.5 mt-1.5 text-base text-gray-700 leading-relaxed print:bg-white print:border-inset bg-gray-300">
                                             <xsl:value-of select="i18n:lookup(@name)" />
  -                                            <xsl:value-of select="i18n:lookup(@type)" />
                                         </li>
