@@ -20,7 +20,7 @@
     "start": "vite",
     "test:xspec": "../xspec/bin/xspec.sh tests/knowledge-merge.xspec",
     "lint:css": "stylelint ./src/*.css",
-    "lint": "npm run lint:css",
+    "lint": "node --run lint:css",
     "lint:xml": "rnv schema/profile-1.0.rnc profile.xml",
     "normalize-knowledge": "xslt3 -xsl:xslt/normalize-knowledge.xsl -s:profile.xml >knowledge-normalized.xml",
     "update-knowledge": "xslt3 -xsl:xslt/profile2knowledge.xsl knowledge=file:$(pwd)/knowledge.xml -s:profile.xml >knowledge.xml"
