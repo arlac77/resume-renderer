@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "semantic-release": "^24.1.2",
-    "stylelint": "^16.11.0",
+    "stylelint": "^16.13.2",
     "stylelint-config-standard": "^37.0.0",
     "xslt3": "^2.7.0",
     "playwright": "^1.49.1"
