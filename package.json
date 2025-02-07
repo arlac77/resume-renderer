@@ -16,6 +16,9 @@
     }
   ],
   "license": "BSD-2-Clause",
+  "bin": {
+    "resume-convert" : "src/resume-convert.mjs"
+  },
   "scripts": {
     "start": "vite",
     "test:xspec": "../xspec/bin/xspec.sh tests/knowledge-merge.xspec",
