@@ -25,8 +25,7 @@
     "lint:css": "stylelint ./src/*.css",
     "lint": "node --run lint:css",
     "lint:xml": "rnv schema/profile-1.0.rnc profile.xml",
-    "normalize-knowledge": "xslt3 -xsl:xslt/normalize-knowledge.xsl -s:profile.xml >knowledge-normalized.xml",
-    "update-knowledge": "xslt3 -xsl:xslt/profile2knowledge.xsl knowledge=file:$(pwd)/knowledge.xml -s:profile.xml >knowledge.xml"
+    "update-skills": "xslt3 -xsl:xslt/profile2skills.xsl skills.url=file:$(pwd)/skills.xml -s:profile.xml >skills-new.xml"
   },
   "devDependencies": {
     "playwright": "^1.52.0",
