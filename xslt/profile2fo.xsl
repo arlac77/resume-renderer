@@ -20,7 +20,7 @@
     <xsl:param name="skills.url" select="'../skills.xml'" />
 	<xsl:param name="with_contact" select="true()"/>
 	<xsl:param name="relevance" select="5" />
-	<xsl:param name="from_date" select="'1966-12-14'"/>
+    <xsl:param name="from_date" select="'1970-01-01'" />
 
     <xsl:variable name="skill" as="element(pro:skill)*" select="pro:skills_initialize()" />
 
