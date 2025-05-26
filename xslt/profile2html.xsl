@@ -162,11 +162,11 @@
                                                 <xsl:when test="@href">
                                                     <a>
                                                         <xsl:attribute name="href" select="@href"></xsl:attribute>
-                                                        <xsl:value-of select="pro:name[1]" />
+                                                        <xsl:value-of select="(pro:name[@xml:lang=$lang],pro:name)[1]" />
                                                     </a>
                                                 </xsl:when>
                                                 <xsl:otherwise>
-                                                    <xsl:value-of select="pro:name[1]" />
+                                                    <xsl:value-of select="(pro:name[@xml:lang=$lang],pro:name)[1]" />
                                                 </xsl:otherwise>
                                             </xsl:choose>
                                         </li>
