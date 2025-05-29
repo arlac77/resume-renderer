@@ -1,0 +1,15 @@
+<a>
+    <skill>
+        <name>A1</name>
+        <name>A2</name>
+    </skill>
+
+    <skill>
+        <name>A3</name>
+        <name>A1</name>
+    </skill>
+
+    <skill>
+        <name>B</name>
+    </skill>
+</a>

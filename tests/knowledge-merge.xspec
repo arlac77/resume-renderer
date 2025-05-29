@@ -4,28 +4,28 @@
                xmlns:xs="http://www.w3.org/2001/XMLSchema"
                xmlns:pro="http://mfelten.de/mf/profile" stylesheet="../xslt/profile2skills.xsl">
     
-    <t:scenario label="merge software">
+    <t:scenario label="merge skill">
         <t:call function="pro:merge_software">
             <t:param name="a">
-                <pro:software relevance="8">
+                <pro:skill relevance="8">
                     <pro:name>name x</pro:name>
                     <pro:name>name a</pro:name>
                     <pro:category>category x</pro:category>
                     <pro:version>1</pro:version>
-                </pro:software>
+                </pro:skill>
             </t:param>
             <t:param name="b">
-                <pro:software>
+                <pro:skill>
                     <pro:name>name b</pro:name>
                     <pro:category>category x</pro:category>
                     <pro:category>category b</pro:category>
                     <pro:manufacturer>manufacturer x</pro:manufacturer>
-                </pro:software>
+                </pro:skill>
             </t:param>
         </t:call>
         
         <t:expect label="merged software">
-            <pro:software relevance="8">
+            <pro:skill relevance="8">
                 <pro:name>name a</pro:name>
                 <pro:name>name b</pro:name>
                 <pro:name>name x</pro:name>
@@ -33,7 +33,7 @@
                 <pro:category>category x</pro:category>
                 <pro:manufacturer>manufacturer x</pro:manufacturer>
                 <pro:version>1</pro:version>
-            </pro:software>
+            </pro:skill>
         </t:expect>
     </t:scenario>
 </t:description>
