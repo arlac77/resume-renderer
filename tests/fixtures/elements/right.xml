@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <knowledge xmlns="http://mfelten.de/mf/profile">
-   <software relevance="10">
+   <skill relevance="10">
       <name>vscode</name>
       <category>editor</category>
-   </software>
+   </skill>
 </knowledge>
