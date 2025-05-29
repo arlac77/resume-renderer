@@ -5,8 +5,12 @@
     </skill>
 
     <skill>
+        <name>A2</name>
         <name>A3</name>
-        <name>A1</name>
+    </skill>
+
+    <skill>
+        <name>A3</name>
     </skill>
 
     <skill>

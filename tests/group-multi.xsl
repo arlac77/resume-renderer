@@ -8,6 +8,9 @@
     <xsl:template match="/a">
 
         <xsl:for-each-group select="skill" group-by="name[1]">
+            <xsl:copy-of select="current-group()"/>
+
+            <!--
             <skill>
                 <xsl:for-each select="distinct-values(current-group()/name)">
                     <name>
@@ -15,6 +18,7 @@
                     </name>
                 </xsl:for-each>
             </skill>
+            -->
         </xsl:for-each-group>
 
     </xsl:template>
