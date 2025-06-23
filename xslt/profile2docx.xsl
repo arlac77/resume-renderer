@@ -138,10 +138,7 @@
                     <w:p>
                         <w:r>
                             <w:t>
-                                <xsl:value-of select="pro:person/pro:postal-code" />
-                            </w:t>
-                            <w:t>
-                                <xsl:value-of select="pro:person/pro:city" />
+                                <xsl:value-of select="concat(pro:person/pro:postal-code, ' ', pro:person/pro:city)" />
                             </w:t>
                         </w:r>
                     </w:p>
