@@ -30,7 +30,7 @@
         <xsl:sort select="."/>
 
         <xsl:variable name="key" select="."/>
-        <xsl:variable name="nodes" select="$skills[translate(pro:name[1],'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqestuvwxyz')=$key]"/>
+        <xsl:variable name="nodes" select="$skills[translate(pro:name[1],'ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜ','abcdefghijklmnopqrstuvwxyzäöü')=$key]"/>
 
         <skill>
           <xsl:copy-of select="$nodes/@*"/>
@@ -72,14 +72,14 @@
   -->
 
     <knowledge>
-      <xsl:for-each-group select="$skills" group-by="for $n in pro:name[not(@xml:lang)] return translate($n,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqestuvwxyz')">
+      <xsl:for-each-group select="$skills" group-by="for $n in pro:name[not(@xml:lang)] return translate($n,'ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜ','abcdefghijklmnopqrstuvwxyzäöü')">
         <xsl:sort select="pro:name[1]"/>
         <xsl:sort select="pro:name[2]"/>
         <xsl:sort select="pro:name[3]"/>
+        <xsl:sort select="pro:name[4]"/>
 
         <skill>
           <xsl:copy-of select="current-group()/@*"/>
-
           <xsl:for-each-group select="current-group()/pro:name[not(@xml:lang)]" group-by=".">
             <xsl:sort select="."/>
             <name>
