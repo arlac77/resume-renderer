@@ -491,13 +491,17 @@
 					<fo:table-body>
 						<xsl:for-each select="pro:skill">
 							<xsl:sort select="pro:category[1]" order="descending"/>
+							<xsl:variable name="name" select="pro:name"/>
+							<xsl:variable name="s" select="$skill[pro:name=$name]"/>
+
+							<xsl:if test="not($s/pro:category/text() = 'natural language')">
 							<fo:table-row height="11pt">
 								<xsl:if test="position() mod 2 = 0">
 									<xsl:attribute name="background-color">#E0E0E0</xsl:attribute>
 								</xsl:if>
 								<fo:table-cell>
 									<fo:block>
-										<xsl:value-of select="pro:manufacturer"/>
+										<xsl:value-of select="$s/pro:manufacturer"/>
 									</fo:block>
 								</fo:table-cell>
 								<fo:table-cell>
@@ -511,6 +515,7 @@
 									</fo:block>
 								</fo:table-cell>
 							</fo:table-row>
+							</xsl:if>
 						</xsl:for-each>
 					</fo:table-body>
 				</fo:table>
