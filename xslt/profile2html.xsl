@@ -26,7 +26,19 @@
 
     <xsl:template match="pro:skill[text()]">
         <span class="skill">
-            <xsl:apply-templates />
+            <xsl:variable name="name" select="text()"/>
+            <xsl:variable name="s" select="$skill[pro:name=$name]"/>
+            <xsl:choose>
+                <xsl:when test="$s/@href">
+                    <a>
+                        <xsl:attribute name="href" select="$s/@href"/>
+                        <xsl:apply-templates />
+                    </a>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:apply-templates />
+                </xsl:otherwise>
+            </xsl:choose>
         </span>
     </xsl:template>
 
@@ -194,7 +206,6 @@
                         <section class="mt-7">
                             <!-- To keep in the same column -->
                             <div class="col-break-avoid">
-
                                 <h2 class="mb-4 text-2sm text-gray-500 font-bold print:font-normal tracking-widest">
                                     <xsl:value-of select="i18n:lookup('CONTACT')" />
                                 </h2>
@@ -230,10 +241,12 @@
                                                 <xsl:copy-of select="document(concat($resources,'/location.svg'))" />
                                             </span>
                                             <span class="ml-1.5">
-                                                <a itemprop="address" >
+                                                <a itemprop="address">
                                                     <xsl:attribute name="href" select="concat('https://www.google.com/maps/search/?api=1&amp;query=',pro:person/pro:city)" />
-                                                    <xsl:value-of select="pro:person/pro:postal-code" />&#160;
-                                                    <xsl:value-of select="pro:person/pro:city" />,
+                                                    <xsl:value-of select="pro:person/pro:postal-code" />
+&#160;
+                                                    <xsl:value-of select="pro:person/pro:city" />
+,
                                                     <xsl:value-of select="i18n:lookup(pro:person/pro:country)" />
                                                 </a>
                                             </span>
@@ -263,7 +276,6 @@
                                     </ul>
                                 </section>
                             </div>
-
                         </section>
                     </div>
                 </div>
