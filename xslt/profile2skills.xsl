@@ -24,50 +24,49 @@
 
     <knowledge>
       <xsl:variable name="all" as="element()*">
-      <xsl:for-each-group select="$skills" group-by="for $n in pro:name[not(@xml:lang)] return translate($n,'ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜ','abcdefghijklmnopqrstuvwxyzäöü')">
-
-        <skill>
-          <xsl:copy-of select="current-group()/@*"/>
-          <xsl:for-each-group select="current-group()/pro:name[not(@xml:lang)]" group-by=".">
-            <xsl:sort select="."/>
-            <name>
-              <xsl:value-of select="."/>
-            </name>
-          </xsl:for-each-group>
-          <xsl:for-each-group select="current-group()/pro:name[@xml:lang]" group-by=".">
-            <xsl:sort select="@xml:lang"/>
-            <name>
-              <xsl:copy-of select="@*"/>
-              <xsl:value-of select="."/>
-            </name>
-          </xsl:for-each-group>
-
-          <xsl:for-each select="distinct-values(current-group()/pro:category)">
-            <xsl:sort select="."/>
-            <category>
-              <xsl:value-of select="."/>
-            </category>
-          </xsl:for-each>
-          <xsl:for-each select="distinct-values(current-group()/pro:manufacturer)">
-            <xsl:sort select="."/>
-            <xsl:if test="string-length(.)&gt;0">
-              <manufacturer>
+        <xsl:for-each-group select="$skills" group-by="for $n in pro:name[not(@xml:lang)] return translate($n,'ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜ','abcdefghijklmnopqrstuvwxyzäöü')">
+          <skill>
+            <xsl:copy-of select="current-group()/@*"/>
+            <xsl:for-each-group select="current-group()/pro:name[not(@xml:lang)]" group-by=".">
+              <xsl:sort select="."/>
+              <name>
                 <xsl:value-of select="."/>
-              </manufacturer>
-            </xsl:if>
-          </xsl:for-each>
-          <xsl:for-each select="distinct-values(current-group()/pro:version)">
-            <xsl:sort select="util:decode_version(.)[1]"/>
-            <xsl:sort select="util:decode_version(.)[2]"/>
-            <xsl:sort select="util:decode_version(.)[3]"/>
-            <xsl:if test="string-length(.)&gt;0">
-              <version>
+              </name>
+            </xsl:for-each-group>
+            <xsl:for-each-group select="current-group()/pro:name[@xml:lang]" group-by=".">
+              <xsl:sort select="@xml:lang"/>
+              <name>
+                <xsl:copy-of select="@*"/>
                 <xsl:value-of select="."/>
-              </version>
-            </xsl:if>
-          </xsl:for-each>
-        </skill>
-      </xsl:for-each-group>
+              </name>
+            </xsl:for-each-group>
+
+            <xsl:for-each select="distinct-values(current-group()/pro:category)">
+              <xsl:sort select="."/>
+              <category>
+                <xsl:value-of select="."/>
+              </category>
+            </xsl:for-each>
+            <xsl:for-each select="distinct-values(current-group()/pro:manufacturer)">
+              <xsl:sort select="."/>
+              <xsl:if test="string-length(.)&gt;0">
+                <manufacturer>
+                  <xsl:value-of select="."/>
+                </manufacturer>
+              </xsl:if>
+            </xsl:for-each>
+            <xsl:for-each select="distinct-values(current-group()/pro:version)">
+              <xsl:sort select="util:decode_version(.)[1]"/>
+              <xsl:sort select="util:decode_version(.)[2]"/>
+              <xsl:sort select="util:decode_version(.)[3]"/>
+              <xsl:if test="string-length(.)&gt;0">
+                <version>
+                  <xsl:value-of select="."/>
+                </version>
+              </xsl:if>
+            </xsl:for-each>
+          </skill>
+        </xsl:for-each-group>
       </xsl:variable>
 
       <xsl:for-each-group select="$all" group-by="pro:name[1]">
