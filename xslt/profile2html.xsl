@@ -232,7 +232,7 @@
                                             <span class="ml-1.5">
                                                 <a itemprop="address" >
                                                     <xsl:attribute name="href" select="concat('https://www.google.com/maps/search/?api=1&amp;query=',pro:person/pro:city)" />
-                                                    <xsl:value-of select="pro:person/pro:postal-code" />
+                                                    <xsl:value-of select="pro:person/pro:postal-code" />&#160;
                                                     <xsl:value-of select="pro:person/pro:city" />,
                                                     <xsl:value-of select="i18n:lookup(pro:person/pro:country)" />
                                                 </a>
