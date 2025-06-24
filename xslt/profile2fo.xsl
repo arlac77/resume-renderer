@@ -15,14 +15,14 @@
 	<xsl:param name="content" select="'profile'"/>
 	<!-- project_overview -->
 	<xsl:param name="lang" select="'de'"/>
-    <xsl:param name="bundles" select="'../i18n/profile.xml'" />
-    <xsl:param name="resources" select="'../resources'" />
-    <xsl:param name="skills.url" select="'../skills.xml'" />
+	<xsl:param name="bundles" select="'../i18n/profile.xml'" />
+	<xsl:param name="resources" select="'../resources'" />
+	<xsl:param name="skills.url" select="'../skills.xml'" />
 	<xsl:param name="with_contact" select="true()"/>
 	<xsl:param name="relevance" select="5" />
-    <xsl:param name="from_date" select="'1970-01-01'" />
+	<xsl:param name="from_date" select="'1970-01-01'" />
 
-    <xsl:variable name="skill" as="element(pro:skill)*" select="pro:skills_initialize()" />
+	<xsl:variable name="skill" as="element(pro:skill)*" select="pro:skills_initialize()" />
 
 	<xsl:template match="/pro:profile">
 		<xsl:variable name="i18n.entries" as="element(i18n:entry)*" select="document($bundles)//i18n:locale[@language=$lang]/i18n:group/i18n:entry"/>
@@ -471,7 +471,9 @@
 					<fo:table-header>
 						<fo:table-row height="15pt" background-color="#AAAAAA">
 							<fo:table-cell>
-								<fo:block><xsl:value-of select="$i18n.entries[@id='manufacturer']/@value"/></fo:block>
+								<fo:block>
+									<xsl:value-of select="$i18n.entries[@id='manufacturer']/@value"/>
+								</fo:block>
 							</fo:table-cell>
 							<fo:table-cell>
 								<fo:block>
@@ -489,7 +491,6 @@
 					<fo:table-body>
 						<xsl:for-each select="pro:skill">
 							<xsl:sort select="pro:category[1]" order="descending"/>
-
 							<fo:table-row height="11pt">
 								<xsl:if test="position() mod 2 = 0">
 									<xsl:attribute name="background-color">#E0E0E0</xsl:attribute>

@@ -22,9 +22,9 @@
       <xsl:copy-of select="document($skills.url)/pro:knowledge/pro:skill"/>
     </xsl:variable>
 
+    <!--
     <xsl:variable name="keys" select="distinct-values(for $key in $skills/pro:name/text() return translate($key,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqestuvwxyz'))"/>
 
-    <!--
     <knowledge>
       <xsl:for-each select="$keys">
         <xsl:sort select="."/>
@@ -74,12 +74,11 @@
     <knowledge>
       <xsl:for-each-group select="$skills" group-by="for $n in pro:name[not(@xml:lang)] return translate($n,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqestuvwxyz')">
         <xsl:sort select="pro:name[1]"/>
+        <xsl:sort select="pro:name[2]"/>
+        <xsl:sort select="pro:name[3]"/>
 
         <skill>
           <xsl:copy-of select="current-group()/@*"/>
-        
-<!-- translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqestuvwxyz')
-          -->
 
           <xsl:for-each-group select="current-group()/pro:name[not(@xml:lang)]" group-by=".">
             <xsl:sort select="."/>
