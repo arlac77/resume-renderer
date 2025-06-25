@@ -46,12 +46,10 @@
                 xmlns:dcterms="http://purl.org/dc/terms/"
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                 <dc:creator>
-                    <xsl:value-of select="pro:person/pro:name" />
-                    <xsl:value-of select="pro:person/pro:surname" />
+                    <xsl:value-of select="concat(pro:person/pro:name, ' ', pro:person/pro:surname)" />
                 </dc:creator>
                 <cp:lastModifiedBy>
-                    <xsl:value-of select="pro:person/pro:name" />
-                    <xsl:value-of select="pro:person/pro:surname" />
+                    <xsl:value-of select="concat(pro:person/pro:name, ' ', pro:person/pro:surname)" />
                 </cp:lastModifiedBy>
                 <cp:revision>
                     <xsl:value-of select="pro:version" />
@@ -68,8 +66,7 @@
                 <DocSecurity>0</DocSecurity>
                 <ScaleCrop>false</ScaleCrop>
                 <Company>
-                    <xsl:value-of select="pro:person/pro:name" />
-                    <xsl:value-of select="pro:person/pro:surname" />
+                    <xsl:value-of select="concat(pro:person/pro:name, ' ', pro:person/pro:surname)" />
                 </Company>
                 <LinksUpToDate>false</LinksUpToDate>
                 <SharedDoc>false</SharedDoc>
@@ -88,13 +85,11 @@
             <w:styles xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                 xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"
                 xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"
-                xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml"
-                xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml"
                 xmlns:w16cex="http://schemas.microsoft.com/office/word/2018/wordml/cex"
                 xmlns:w16cid="http://schemas.microsoft.com/office/word/2016/wordml/cid"
                 xmlns:w16="http://schemas.microsoft.com/office/word/2018/wordml"
                 xmlns:w16sdtdh="http://schemas.microsoft.com/office/word/2020/wordml/sdtdatahash"
-                xmlns:w16se="http://schemas.microsoft.com/office/word/2015/wordml/symex" mc:Ignorable="w14 w15 w16se w16cid w16 w16cex w16sdtdh">
+                xmlns:w16se="http://schemas.microsoft.com/office/word/2015/wordml/symex" mc:Ignorable="w16se w16cid w16 w16cex w16sdtdh">
                 <w:style w:type="paragraph" w:styleId="ListBullet">
                     <w:name w:val="List Bullet"/>
                     <w:basedOn w:val="Normal"/>
@@ -114,7 +109,6 @@
             </w:styles>
         </xsl:result-document>
 
-
         <xsl:result-document href="{$dest}/word/_rels/document.xml.rels">
             <Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
             </Relationships>
@@ -131,10 +125,16 @@
                 xmlns:w10="urn:schemas-microsoft-com:office:word"
                 xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"
                 xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup"
-                xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk"
                 xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml"
                 xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape">
                 <w:body>
+                    <w:p>
+                        <w:r>
+                            <w:t>
+                                <xsl:value-of select="concat(pro:person/pro:name, ' ', pro:person/pro:surname)" />
+                            </w:t>
+                        </w:r>
+                    </w:p>
                     <w:p>
                         <w:r>
                             <w:t>
@@ -149,12 +149,15 @@
                             </w:t>
                         </w:r>
                     </w:p>
+
+                    <!--
                     <w:sectPr w:rsidR="0001">
                         <w:pgSz w:w="12240" w:h="15840" />
                         <w:pgMar w:top="1440" w:right="1440" w:bottom="1440" w:left="1440" w:header="720" w:footer="720" w:gutter="0" />
                         <w:cols w:space="720" />
                         <w:docGrid w:linePitch="360" />
                     </w:sectPr>
+                    -->
 
                     <w:tc>
                         <w:tcPr>
@@ -179,10 +182,10 @@
                         <xsl:apply-templates select="." mode="extract_skills"/>
                     </xsl:variable>
 
-                    <xsl:for-each-group select="$extracted_skills" group-by="@name">
-                        <xsl:sort select="@category" />
+                    <xsl:for-each-group select="$extracted_skills" group-by="pro:name[1]">
+                        <xsl:sort select="pro:category[1]" />
                         <xsl:sort select="@level" />
-                        <xsl:sort select="@name" />
+                        <xsl:sort select="pro:name[1]" />
                         <w:p>
                             <w:pPr>
                                 <w:pStyle w:val="ListBullet"/>
@@ -190,13 +193,13 @@
 
                             <w:r>
                                 <w:t>
-                                    <xsl:value-of select="@name" />
+                                    <xsl:value-of select="pro:name" />
                                 </w:t>
                                 <w:t>
                                     <xsl:value-of select="' '" />
                                 </w:t>
                                 <w:t>
-                                    <xsl:value-of select="i18n:lookup(@level)" />
+                                    <xsl:value-of select="pro:category" />
                                 </w:t>
                             </w:r>
                         </w:p>
