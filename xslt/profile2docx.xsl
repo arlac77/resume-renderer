@@ -4,6 +4,7 @@
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:pro="http://mfelten.de/mf/profile"
     xmlns:i18n="http://mfelten.de/mf/i18n"
+    xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"
     xmlns="http://mfelten.de/mf/profile" exclude-result-prefixes="pro i18n">
 
     <xsl:include href="profile.xsl" />
@@ -151,6 +152,31 @@
                     </w:sectPr>
                     -->
 
+                    <xsl:for-each select="pro:job[pro:from &gt; $from_date and pro:customer and (pro:details or pro:title)]">
+                        <xsl:sort select="pro:to" order="descending" />
+
+                        <w:p>
+                            <w:r>
+                                <w:t>
+                                    <xsl:value-of select="(pro:title[@xml:lang=$lang],pro:title[not(exists(@xml:lang))])[1]" />
+                                </w:t>
+                            </w:r>
+                        </w:p>
+                        <w:p>
+                            <w:r>
+                                <w:t>
+                                    <xsl:value-of select="pro:customer" />
+                                    <xsl:value-of select="' '"/>
+                                    <xsl:value-of select="pro:from" />
+                                    <xsl:value-of select="' - '"/>
+                                    <xsl:value-of select="pro:to" />
+                                </w:t>
+                            </w:r>
+                        </w:p>
+
+                        <xsl:apply-templates select="."/>
+                    </xsl:for-each>
+
                     <w:tc>
                         <w:tcPr>
                             <w:tcW w:w="10080" w:type="dxa"/>
@@ -206,5 +232,16 @@
                 </w:body>
             </w:document>
         </xsl:result-document>
+    </xsl:template>
+
+
+    <xsl:template match="pro:details">
+        <w:p>
+            <w:r>
+                <w:t>
+                    <xsl:value-of select="." />
+                </w:t>
+            </w:r>
+        </w:p>
     </xsl:template>
 </xsl:stylesheet>
