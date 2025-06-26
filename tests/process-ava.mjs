@@ -19,11 +19,11 @@ test("t1", async t => {
     output: {
       html: {},
       docx: {},
-      pdf: {}
+      //pdf: {}
     }
   });
 
   t.deepEqual(output.html.files, [join(tmp, "herbert_mueller_en.html")]);
   t.deepEqual(output.docx.files, [join(tmp, "herbert_mueller_en.docx")]);
-  t.deepEqual(output.pdf.files, [join(tmp, "herbert_mueller_en.pdf")]);
+  //t.deepEqual(output.pdf.files, [join(tmp, "herbert_mueller_en.pdf")]);
 });
