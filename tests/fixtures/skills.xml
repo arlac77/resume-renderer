@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-model href="../../schema/profile-1.0.rnc"?>
+<knowledge xmlns="http://mfelten.de/mf/profile">
+   <skill relevance="3">
+      <name>3/50-VME</name>
+      <category>hardware</category>
+      <manufacturer>SUN</manufacturer>
+   </skill>
+</knowledge>

@@ -18,6 +18,7 @@
     <xsl:param name="skills.url" select="'../skills.xml'" />
     <xsl:param name="with_contact" select="true()" />
     <xsl:param name="relevance" select="5" />
+    <xsl:param name="date" select="'2012-08-07T00:00:00Z'" />
     <xsl:param name="from_date" select="'1970-01-01'" />
 
     <xsl:variable name="skill" as="element(pro:skill)*" select="pro:skills_initialize()" />
@@ -55,8 +56,8 @@
                 <cp:revision>
                     <xsl:value-of select="pro:version" />
                 </cp:revision>
-                <dcterms:created xsi:type="dcterms:W3CDTF">2012-08-07T00:00:00Z</dcterms:created>
-                <dcterms:modified xsi:type="dcterms:W3CDTF">2019-12-05T00:00:00Z</dcterms:modified>
+                <dcterms:created xsi:type="dcterms:W3CDTF"><xsl:value-of select="$date"/></dcterms:created>
+                <dcterms:modified xsi:type="dcterms:W3CDTF"><xsl:value-of select="$date"/></dcterms:modified>
             </cp:coreProperties>
         </xsl:result-document>
 

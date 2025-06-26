@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-model href="../../schema/profile-1.0.rnc"?>
+<profile xmlns="http://mfelten.de/mf/profile">
+    <version>2025-07</version>
+    <person>
+        <initials>H</initials>
+        <initials>M</initials>
+        <name>Herbert</name>
+        <surname>Müller</surname>
+        <birthdate>1960</birthdate>
+        <street>Fasanenweg 17</street>
+        <postal-code>12345</postal-code>
+        <city>Entenhausen</city>
+        <country>germany</country>
+        <email>Herbert.Mueller@example.com</email>
+        <phone>+49 1234 567890</phone>
+        <mobile>+49 172 123456</mobile>
+        <picture>../HerbertMüller.jpg</picture>
+        <github>hm</github>
+        <telegram>hm</telegram>
+    </person>
+
+    <language name="english" type="fluent" />
+    <language name="german" type="mother tongue" />
+
+    <focus>
+        <item since="1987">
+            <title>Software Delivery Pipelines</title>
+            <details>
+                <skill>build</skill> /                <skill>test</skill> /                <skill>deploy</skill> /                <skill>CI</skill>
+            </details>
+        </item>
+
+    </focus>
+    <job>
+        <from>1987/07</from>
+        <to>1991/03</to>
+        <title>System Developer</title>
+        <customer>AAA GmbH</customer>
+        <details xml:lang="de">
+        </details>
+    </job>
+</profile>
