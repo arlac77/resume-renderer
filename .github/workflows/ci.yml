@@ -19,6 +19,8 @@ jobs:
           - 22.17.0
           - 24.3.0
     steps:
+      - name: install deps
+        run: apt-get install fop
       - name: checkout
         uses: actions/checkout@v4.2.2
       - name: prepare node
