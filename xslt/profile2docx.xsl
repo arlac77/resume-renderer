@@ -234,8 +234,17 @@
         </xsl:result-document>
     </xsl:template>
 
+    <xsl:template match="pro:p">
+        <w:p>
+            <w:r>
+                <w:t>
+                    <xsl:value-of select="." />
+                </w:t>
+            </w:r>
+        </w:p>
+    </xsl:template>
 
-    <xsl:template match="pro:details">
+    <xsl:template match="pro:details[@xml:lang=$lang or not(exists(@xml:lang))]">
         <w:p>
             <w:r>
                 <w:t>
