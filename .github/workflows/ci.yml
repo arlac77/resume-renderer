@@ -19,8 +19,6 @@ jobs:
         node-version:
           - 24.11.1
     steps:
-      - name: install dependencies
-        run: sudo apt install -y fop
       - name: checkout
         uses: actions/checkout@v6.0.1
       - name: prepare node
@@ -29,6 +27,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: install
         run: npm ci
+      - name: install dependencies
+        run: sudo apt install -y fop
       - name: test and coverage
         run: npm run cover --if-present
       - name: coveralls
